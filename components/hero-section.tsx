@@ -4,17 +4,20 @@ import { useTranslation } from "react-i18next"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ArrowDown, Download, Github, Linkedin, Mail } from "lucide-react"
+import { socialLinks } from "@/constants/socialLinks";
 
-export function HeroSection() {
-  const { t } = useTranslation()
+export const HeroSection = () => {
+  const { t } = useTranslation();
 
   const scrollToProjects = () => {
-    document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" })
-  }
+    document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Background Animation */}
+    <section
+      id="home"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+    >
       <div className="absolute inset-0 -z-10">
         <motion.div
           className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"
@@ -136,18 +139,27 @@ export function HeroSection() {
             className="flex justify-center space-x-6"
           >
             {[
-              { icon: Github, href: "#" },
-              { icon: Linkedin, href: "#" },
+              { icon: Github, href: socialLinks.github },
+              {
+                icon: Linkedin,
+                href: socialLinks.linkedin,
+              },
               { icon: Mail, href: "#contact" },
             ].map((social, index) => (
-              <motion.div key={index} whileHover={{ scale: 1.2, y: -5 }} whileTap={{ scale: 0.9 }}>
+              <motion.div
+                key={index}
+                whileHover={{ scale: 1.2, y: -5 }}
+                whileTap={{ scale: 0.9 }}
+              >
                 <Button
                   variant="ghost"
                   size="icon"
                   className="hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-950 transition-all duration-300"
                   onClick={() =>
                     social.href.startsWith("#")
-                      ? document.querySelector(social.href)?.scrollIntoView({ behavior: "smooth" })
+                      ? document
+                          .querySelector(social.href)
+                          ?.scrollIntoView({ behavior: "smooth" })
                       : window.open(social.href, "_blank")
                   }
                 >
@@ -159,7 +171,6 @@ export function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Scroll Indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -180,5 +191,5 @@ export function HeroSection() {
         </motion.div>
       </motion.div>
     </section>
-  )
-}
+  );
+};

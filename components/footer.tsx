@@ -5,8 +5,8 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Github, Linkedin, Mail, Heart } from "lucide-react"
 
-export function Footer() {
-  const { t } = useTranslation()
+export const Footer = () => {
+  const { t } = useTranslation();
 
   const socialLinks = [
     {
@@ -27,7 +27,7 @@ export function Footer() {
       href: "mailto:sebastian.mena@example.com",
       color: "hover:text-red-600",
     },
-  ]
+  ];
 
   return (
     <footer className="bg-background border-t border-border/50 py-12">
@@ -86,7 +86,12 @@ export function Footer() {
                     className={`text-m uted-foreground ${social.color} transition-all duration-300 hover:bg-muted/50`}
                     asChild
                   >
-                    <a href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.name}>
+                    <a
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={social.name}
+                    >
                       <social.icon className="h-5 w-5" />
                     </a>
                   </Button>
@@ -115,17 +120,23 @@ export function Footer() {
                 {"Hecho con"}
                 <motion.span
                   animate={{ scale: [1, 1.2, 1] }}
-                  transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY, repeatDelay: 2 }}
+                  transition={{
+                    duration: 1,
+                    repeat: Number.POSITIVE_INFINITY,
+                    repeatDelay: 2,
+                  }}
                 >
                   <Heart className="w-4 h-4 text-red-500 fill-current" />
                 </motion.span>
                 {"y mucho código"}
               </p>
-              <p className="text-sm text-muted-foreground">© 2024 Sebastian Mena. {"Todos los derechos reservados."}</p>
+              <p className="text-sm text-muted-foreground">
+                © 2024 Sebastian Mena. {"Todos los derechos reservados."}
+              </p>
             </motion.div>
           </motion.div>
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};

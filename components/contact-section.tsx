@@ -11,26 +11,28 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Mail, Phone, MapPin, Send, Github, Linkedin, MessageCircle } from "lucide-react"
 
-export function ContactSection() {
-  const { t } = useTranslation()
+export const ContactSection = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
-  })
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     // Handle form submission here
-    console.log("Form submitted:", formData)
-  }
+    console.log("Form submitted:", formData);
+  };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    })
-  }
+    });
+  };
 
   const contactInfo = [
     {
@@ -54,10 +56,13 @@ export function ContactSection() {
       color: "bg-purple-500",
       href: "#",
     },
-  ]
+  ];
 
   return (
-    <section id="contact" className="py-20 bg-muted/30 relative overflow-hidden">
+    <section
+      id="contact"
+      className="py-20 bg-muted/30 relative overflow-hidden"
+    >
       {/* Background Animation */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -163,7 +168,9 @@ export function ContactSection() {
                   viewport={{ once: true }}
                   whileHover={{ x: 10, scale: 1.02 }}
                   className="group cursor-pointer"
-                  onClick={() => info.href !== "#" && window.open(info.href, "_blank")}
+                  onClick={() =>
+                    info.href !== "#" && window.open(info.href, "_blank")
+                  }
                 >
                   <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-background/70 backdrop-blur-sm">
                     <CardContent className="p-6">
@@ -198,7 +205,11 @@ export function ContactSection() {
                 { icon: Linkedin, href: "#", color: "hover:bg-blue-600" },
                 { icon: MessageCircle, href: "#", color: "hover:bg-green-600" },
               ].map((social, index) => (
-                <motion.div key={index} whileHover={{ scale: 1.1, y: -5 }} whileTap={{ scale: 0.9 }}>
+                <motion.div
+                  key={index}
+                  whileHover={{ scale: 1.1, y: -5 }}
+                  whileTap={{ scale: 0.9 }}
+                >
                   <Button
                     variant="outline"
                     size="icon"
@@ -297,5 +308,5 @@ export function ContactSection() {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};

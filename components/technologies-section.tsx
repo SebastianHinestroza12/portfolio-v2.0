@@ -53,8 +53,8 @@ const technologiesData = [
   },
 ]
 
-export function TechnologiesSection() {
-  const { t } = useTranslation()
+export const TechnologiesSection = () => {
+  const { t } = useTranslation();
 
   return (
     <section id="technologies" className="py-20">
@@ -141,7 +141,11 @@ export function TechnologiesSection() {
                     >
                       <Card className="h-32 border-0 shadow-lg hover:shadow-2xl transition-all duration-300 bg-background/70 backdrop-blur-sm group cursor-pointer">
                         <CardContent className="p-6 flex flex-col items-center justify-center h-full">
-                          <motion.div whileHover={{ rotate: 360 }} transition={{ duration: 0.6 }} className="mb-3">
+                          <motion.div
+                            whileHover={{ rotate: 360 }}
+                            transition={{ duration: 0.6 }}
+                            className="mb-3"
+                          >
                             <Icon icon={tech.icon} className="w-10 h-10" />
                           </motion.div>
                           <span className="text-sm font-semibold text-center text-foreground group-hover:text-blue-600 transition-colors">
@@ -193,5 +197,5 @@ export function TechnologiesSection() {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};

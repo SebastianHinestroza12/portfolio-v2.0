@@ -47,47 +47,60 @@ const projectsData = [
   },
 ]
 
-export function ProjectsSection() {
-  const { t, i18n } = useTranslation()
+export const ProjectsSection = () => {
+  const { t, i18n } = useTranslation();
 
-  // Inicializar el estado correctamente para cada proyecto
-  const [currentImageIndex, setCurrentImageIndex] = useState<{ [key: number]: number }>(() => {
-    const initialState: { [key: number]: number } = {}
+  const [currentImageIndex, setCurrentImageIndex] = useState<{
+    [key: number]: number;
+  }>(() => {
+    const initialState: { [key: number]: number } = {};
     projectsData.forEach((project) => {
-      initialState[project.id] = 0
-    })
-    return initialState
-  })
+      initialState[project.id] = 0;
+    });
+    return initialState;
+  });
 
-  const nextImage = (e: React.MouseEvent, projectId: number, totalImages: number) => {
-    e.preventDefault()
-    e.stopPropagation()
+  const nextImage = (
+    e: React.MouseEvent,
+    projectId: number,
+    totalImages: number,
+  ) => {
+    e.preventDefault();
+    e.stopPropagation();
 
     setCurrentImageIndex((prev) => ({
       ...prev,
       [projectId]: (prev[projectId] + 1) % totalImages,
-    }))
-  }
+    }));
+  };
 
-  const prevImage = (e: React.MouseEvent, projectId: number, totalImages: number) => {
-    e.preventDefault()
-    e.stopPropagation()
+  const prevImage = (
+    e: React.MouseEvent,
+    projectId: number,
+    totalImages: number,
+  ) => {
+    e.preventDefault();
+    e.stopPropagation();
 
     setCurrentImageIndex((prev) => ({
       ...prev,
       [projectId]: (prev[projectId] - 1 + totalImages) % totalImages,
-    }))
-  }
+    }));
+  };
 
-  const goToImage = (e: React.MouseEvent, projectId: number, imageIndex: number) => {
-    e.preventDefault()
-    e.stopPropagation()
+  const goToImage = (
+    e: React.MouseEvent,
+    projectId: number,
+    imageIndex: number,
+  ) => {
+    e.preventDefault();
+    e.stopPropagation();
 
     setCurrentImageIndex((prev) => ({
       ...prev,
       [projectId]: imageIndex,
-    }))
-  }
+    }));
+  };
 
   return (
     <section id="projects" className="py-20 bg-muted/30">
@@ -140,8 +153,15 @@ export function ProjectsSection() {
                       className="relative w-full h-full"
                     >
                       <Image
-                        src={project.images[currentImageIndex[project.id]] || "/placeholder.svg"}
-                        alt={i18n.language === "es" ? project.title : project.titleEn}
+                        src={
+                          project.images[currentImageIndex[project.id]] ||
+                          "/placeholder.svg"
+                        }
+                        alt={
+                          i18n.language === "es"
+                            ? project.title
+                            : project.titleEn
+                        }
                         fill
                         className="object-cover group-hover:scale-110 transition-transform duration-700"
                         priority={index === 0}
@@ -153,7 +173,9 @@ export function ProjectsSection() {
                     <>
                       {/* Previous Button */}
                       <button
-                        onClick={(e) => prevImage(e, project.id, project.images.length)}
+                        onClick={(e) =>
+                          prevImage(e, project.id, project.images.length)
+                        }
                         className="absolute left-2 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-black/60 hover:bg-black/80 text-white backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 z-10"
                         aria-label="Imagen anterior"
                       >
@@ -162,7 +184,9 @@ export function ProjectsSection() {
 
                       {/* Next Button */}
                       <button
-                        onClick={(e) => nextImage(e, project.id, project.images.length)}
+                        onClick={(e) =>
+                          nextImage(e, project.id, project.images.length)
+                        }
                         className="absolute right-2 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-black/60 hover:bg-black/80 text-white backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 z-10"
                         aria-label="Siguiente imagen"
                       >
@@ -196,12 +220,18 @@ export function ProjectsSection() {
 
                 <CardContent className="space-y-6">
                   <p className="text-muted-foreground leading-relaxed">
-                    {i18n.language === "es" ? project.description : project.descriptionEn}
+                    {i18n.language === "es"
+                      ? project.description
+                      : project.descriptionEn}
                   </p>
 
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech) => (
-                      <motion.div key={tech} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                      <motion.div
+                        key={tech}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
                         <Badge
                           variant="secondary"
                           className="bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-300 font-medium"
@@ -214,14 +244,21 @@ export function ProjectsSection() {
 
                   <div className="flex flex-col gap-3 pt-4">
                     <div className="flex gap-3">
-                      <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                      <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
                         <Button
                           variant="default"
                           size="sm"
                           className="bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl transition-all duration-300"
                           asChild
                         >
-                          <a href={project.link} target="_blank" rel="noopener noreferrer">
+                          <a
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             <Globe className="w-4 h-4 mr-2" />
                             {t("projects.viewDemo")}
                           </a>
@@ -229,25 +266,34 @@ export function ProjectsSection() {
                       </motion.div>
                     </div>
 
-                    {project.repositories && project.repositories.length > 0 && (
-                      <div className="flex flex-wrap gap-2">
-                        {project.repositories.map((repo, repoIndex) => (
-                          <motion.div key={repoIndex} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                            <Button
-                              variant="outline"
-                              size="sm"
-                              className="border-slate-300 text-slate-700 hover:bg-slate-50 dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-800 transition-all duration-300"
-                              asChild
+                    {project.repositories &&
+                      project.repositories.length > 0 && (
+                        <div className="flex flex-wrap gap-2">
+                          {project.repositories.map((repo, repoIndex) => (
+                            <motion.div
+                              key={repoIndex}
+                              whileHover={{ scale: 1.05 }}
+                              whileTap={{ scale: 0.95 }}
                             >
-                              <a href={repo.url} target="_blank" rel="noopener noreferrer">
-                                <Github className="w-4 h-4 mr-2" />
-                                {repo.name}
-                              </a>
-                            </Button>
-                          </motion.div>
-                        ))}
-                      </div>
-                    )}
+                              <Button
+                                variant="outline"
+                                size="sm"
+                                className="border-slate-300 text-slate-700 hover:bg-slate-50 dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-800 transition-all duration-300"
+                                asChild
+                              >
+                                <a
+                                  href={repo.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  <Github className="w-4 h-4 mr-2" />
+                                  {repo.name}
+                                </a>
+                              </Button>
+                            </motion.div>
+                          ))}
+                        </div>
+                      )}
                   </div>
                 </CardContent>
               </Card>
@@ -256,5 +302,5 @@ export function ProjectsSection() {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};

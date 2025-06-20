@@ -5,17 +5,17 @@ import { motion } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
 import { CheckCircle, Code, Lightbulb, Target, Zap, Cpu, Database, Globe } from "lucide-react"
 
-export function AboutSection() {
-  const { t } = useTranslation()
+export const AboutSection = () => {
+  const { t } = useTranslation();
 
-  const highlights = t("about.highlights", { returnObjects: true }) as string[]
+  const highlights = t("about.highlights", { returnObjects: true }) as string[];
 
   const stats = [
     { icon: Code, label: "Años de Experiencia", value: "2+" },
     { icon: Target, label: "Proyectos Completados", value: "15+" },
     { icon: Zap, label: "Tecnologías Dominadas", value: "20+" },
     { icon: Lightbulb, label: "Soluciones Creadas", value: "50+" },
-  ]
+  ];
 
   const codeElements = [
     { symbol: "{ }", position: "top-4 left-4", delay: 0 },
@@ -24,7 +24,7 @@ export function AboutSection() {
     { symbol: "[ ]", position: "bottom-4 right-4", delay: 1.5 },
     { symbol: "=>", position: "top-1/2 left-8", delay: 0.5 },
     { symbol: "&&", position: "top-1/2 right-8", delay: 2.5 },
-  ]
+  ];
 
   return (
     <section id="about" className="py-20 bg-muted/30 relative overflow-hidden">
@@ -127,8 +127,12 @@ export function AboutSection() {
                     <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4">
                       <stat.icon className="w-6 h-6 text-blue-600" />
                     </div>
-                    <div className="text-2xl font-bold text-foreground mb-2">{stat.value}</div>
-                    <div className="text-sm text-muted-foreground font-medium">{stat.label}</div>
+                    <div className="text-2xl font-bold text-foreground mb-2">
+                      {stat.value}
+                    </div>
+                    <div className="text-sm text-muted-foreground font-medium">
+                      {stat.label}
+                    </div>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -167,7 +171,9 @@ export function AboutSection() {
                         className="flex items-center space-x-3 p-4 rounded-lg hover:bg-muted/50 transition-all duration-300 group"
                       >
                         <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0 group-hover:scale-110 transition-transform" />
-                        <span className="text-foreground font-medium">{highlight}</span>
+                        <span className="text-foreground font-medium">
+                          {highlight}
+                        </span>
                       </motion.div>
                     ))}
                   </div>
@@ -198,7 +204,9 @@ export function AboutSection() {
                         <div className="w-10 h-10 bg-blue-50 dark:bg-blue-950 rounded-full flex items-center justify-center">
                           <item.icon className="w-5 h-5 text-blue-600" />
                         </div>
-                        <span className="text-xs text-muted-foreground font-medium">{item.label}</span>
+                        <span className="text-xs text-muted-foreground font-medium">
+                          {item.label}
+                        </span>
                       </motion.div>
                     ))}
                   </motion.div>
@@ -224,9 +232,10 @@ export function AboutSection() {
                   transition={{ delay: 0.7 }}
                   viewport={{ once: true }}
                 >
-                  "El código limpio no se escribe siguiendo un conjunto de reglas. No te conviertes en un artesano del
-                  software al aprender una lista de heurísticas. El profesionalismo y la artesanía provienen de los
-                  valores y disciplinas."
+                  "El código limpio no se escribe siguiendo un conjunto de
+                  reglas. No te conviertes en un artesano del software al
+                  aprender una lista de heurísticas. El profesionalismo y la
+                  artesanía provienen de los valores y disciplinas."
                 </motion.blockquote>
                 <motion.cite
                   className="text-sm font-semibold text-blue-600"
@@ -243,5 +252,5 @@ export function AboutSection() {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};

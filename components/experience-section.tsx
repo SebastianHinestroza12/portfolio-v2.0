@@ -6,16 +6,18 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { MapPin, Calendar } from "lucide-react"
 
-export function ExperienceSection() {
-  const { t } = useTranslation()
+export const ExperienceSection = () => {
+  const { t } = useTranslation();
 
-  const positions = t("experience.positions", { returnObjects: true }) as Array<{
-    title: string
-    company: string
-    period: string
-    mode: string
-    description: string
-  }>
+  const positions = t("experience.positions", {
+    returnObjects: true,
+  }) as Array<{
+    title: string;
+    company: string;
+    period: string;
+    mode: string;
+    description: string;
+  }>;
 
   return (
     <section id="experience" className="py-20">
@@ -53,15 +55,22 @@ export function ExperienceSection() {
                   <Card className="ml-0 md:ml-20 shadow-lg hover:shadow-xl transition-shadow">
                     <CardHeader>
                       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
-                        <CardTitle className="text-xl font-bold text-blue-600">{position.title}</CardTitle>
+                        <CardTitle className="text-xl font-bold text-blue-600">
+                          {position.title}
+                        </CardTitle>
                         {index === 0 && (
-                          <Badge variant="secondary" className="bg-green-100 text-green-800 w-fit">
+                          <Badge
+                            variant="secondary"
+                            className="bg-green-100 text-green-800 w-fit"
+                          >
                             {t("experience.current")}
                           </Badge>
                         )}
                       </div>
                       <div className="space-y-2">
-                        <h3 className="text-lg font-semibold text-foreground">{position.company}</h3>
+                        <h3 className="text-lg font-semibold text-foreground">
+                          {position.company}
+                        </h3>
                         <div className="flex flex-col sm:flex-row sm:items-center gap-2 text-sm text-muted-foreground">
                           <div className="flex items-center gap-1">
                             <Calendar className="h-4 w-4" />
@@ -75,7 +84,9 @@ export function ExperienceSection() {
                       </div>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-muted-foreground leading-relaxed">{position.description}</p>
+                      <p className="text-muted-foreground leading-relaxed">
+                        {position.description}
+                      </p>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -85,5 +96,5 @@ export function ExperienceSection() {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
