@@ -1,15 +1,22 @@
-"use client"
+"use client";
 
-import type React from "react"
-
-import { useState } from "react"
-import { useTranslation } from "react-i18next"
-import { motion } from "framer-motion"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Mail, Phone, MapPin, Send, Github, Linkedin, MessageCircle } from "lucide-react"
+import type React from "react";
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  FaGithub,
+  FaLinkedinIn,
+  FaEnvelope,
+  FaPhone,
+  FaMapMarkerAlt,
+  FaPaperPlane,
+} from "react-icons/fa";
+import { socialLinks } from "@/constants/socialLinks";
 
 export const ContactSection = () => {
   const { t } = useTranslation();
@@ -36,23 +43,23 @@ export const ContactSection = () => {
 
   const contactInfo = [
     {
-      icon: Mail,
-      title: "Email",
-      value: "sebastian.mena@example.com",
+      icon: FaEnvelope,
+      title: t("contact.info.email"),
+      value: "menas7527@gmail.com",
       color: "bg-blue-500",
-      href: "mailto:sebastian.mena@example.com",
+      href: socialLinks.email,
     },
     {
-      icon: Phone,
-      title: "Teléfono",
-      value: "+57 300 123 4567",
+      icon: FaPhone,
+      title: t("contact.info.phone"),
+      value: "+57 323 288 3290",
       color: "bg-green-500",
-      href: "tel:+573001234567",
+      href: "tel:+573232883290",
     },
     {
-      icon: MapPin,
-      title: "Ubicación",
-      value: "Colombia",
+      icon: FaMapMarkerAlt,
+      title: t("contact.info.location"),
+      value: t("contact.info.country"),
       color: "bg-purple-500",
       href: "#",
     },
@@ -143,7 +150,7 @@ export const ContactSection = () => {
                 transition={{ delay: 0.2 }}
                 viewport={{ once: true }}
               >
-                {"¡Conectemos!"}
+                {t("contact.connectTitle")}
               </motion.h3>
               <motion.p
                 className="text-muted-foreground mb-8 leading-relaxed"
@@ -152,9 +159,7 @@ export const ContactSection = () => {
                 transition={{ delay: 0.3 }}
                 viewport={{ once: true }}
               >
-                {
-                  "Estoy siempre abierto a nuevas oportunidades y proyectos interesantes. No dudes en contactarme para discutir cómo podemos trabajar juntos."
-                }
+                {t("contact.connectDescription")}
               </motion.p>
             </div>
 
@@ -201,9 +206,9 @@ export const ContactSection = () => {
               viewport={{ once: true }}
             >
               {[
-                { icon: Github, href: "#", color: "hover:bg-gray-600" },
-                { icon: Linkedin, href: "#", color: "hover:bg-blue-600" },
-                { icon: MessageCircle, href: "#", color: "hover:bg-green-600" },
+                { icon: FaGithub, href: "#", color: "hover:bg-gray-600" },
+                { icon: FaLinkedinIn, href: "#", color: "hover:bg-blue-600" },
+                { icon: FaEnvelope, href: "#", color: "hover:bg-green-600" },
               ].map((social, index) => (
                 <motion.div
                   key={index}
@@ -231,8 +236,8 @@ export const ContactSection = () => {
             <Card className="shadow-2xl border-0 bg-background/70 backdrop-blur-sm">
               <CardHeader>
                 <CardTitle className="text-xl font-bold text-foreground flex items-center gap-2">
-                  <MessageCircle className="w-5 h-5 text-blue-600" />
-                  {"Envíame un mensaje"}
+                  <FaPaperPlane className="w-5 h-5 text-blue-600" />
+                  {t("contact.formTitle")}
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -297,7 +302,7 @@ export const ContactSection = () => {
                       className="w-full bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl transition-all duration-300"
                       size="lg"
                     >
-                      <Send className="w-4 h-4 mr-2" />
+                      <FaPaperPlane className="w-4 h-4 mr-2" />
                       {t("contact.form.send")}
                     </Button>
                   </motion.div>

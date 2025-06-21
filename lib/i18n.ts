@@ -76,7 +76,13 @@ const resources = {
             title: "Sistema de Agenda Completo",
             description:
               "Sistema integral de gestión de citas desarrollado desde cero. Incluye análisis de requisitos, arquitectura de base de datos, backend, frontend y despliegue a producción. Manejo completo del ciclo de vida del desarrollo de software.",
-            technologies: ["NestJS", "React", "TypeScript", "Docker", "PostgreSQL"],
+            technologies: [
+              "NestJS",
+              "React",
+              "TypeScript",
+              "Docker",
+              "PostgreSQL",
+            ],
           },
         ],
       },
@@ -87,12 +93,27 @@ const resources = {
       contact: {
         title: "Contacto",
         subtitle: "¿Tienes un proyecto en mente? ¡Hablemos!",
+        connectTitle: "¡Conectemos!",
+        connectDescription:
+          "Estoy siempre abierto a nuevas oportunidades y proyectos interesantes. No dudes en contactarme para discutir cómo podemos trabajar juntos.",
+        formTitle: "Envíame un mensaje",
         form: {
           name: "Nombre",
           email: "Email",
           message: "Mensaje",
           send: "Enviar Mensaje",
         },
+        info: {
+          email: "Email",
+          phone: "Teléfono",
+          location: "Ubicación",
+          country: "Colombia",
+        },
+      },
+      footer: {
+        madeWith: "Hecho con",
+        andCode: "y mucho código",
+        allRightsReserved: "Todos los derechos reservados.",
       },
     },
   },
@@ -170,7 +191,13 @@ const resources = {
             title: "Complete Appointment System",
             description:
               "Comprehensive appointment management system developed from scratch. Includes requirements analysis, database architecture, backend, frontend, and production deployment. Complete software development lifecycle management.",
-            technologies: ["NestJS", "React", "TypeScript", "Docker", "PostgreSQL"],
+            technologies: [
+              "NestJS",
+              "React",
+              "TypeScript",
+              "Docker",
+              "PostgreSQL",
+            ],
           },
         ],
       },
@@ -181,16 +208,31 @@ const resources = {
       contact: {
         title: "Contact",
         subtitle: "Have a project in mind? Let's talk!",
+        connectTitle: "Let's connect!",
+        connectDescription:
+          "I'm always open to new opportunities and interesting projects. Feel free to contact me to discuss how we can work together.",
+        formTitle: "Send me a message",
         form: {
           name: "Name",
           email: "Email",
           message: "Message",
           send: "Send Message",
         },
+        info: {
+          email: "Email",
+          phone: "Phone",
+          location: "Location",
+          country: "Colombia",
+        },
+      },
+      footer: {
+        madeWith: "Made with",
+        andCode: "and lots of code",
+        allRightsReserved: "All rights reserved.",
       },
     },
   },
-}
+};
 
 i18n.use(initReactI18next).init({
   resources,

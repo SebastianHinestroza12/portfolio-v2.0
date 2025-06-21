@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { useTranslation } from "react-i18next"
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { Github, Linkedin, Mail, Heart } from "lucide-react"
+import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { FaGithub, FaLinkedinIn, FaEnvelope, FaHeart } from "react-icons/fa";
 
 export const Footer = () => {
   const { t } = useTranslation();
@@ -11,19 +11,19 @@ export const Footer = () => {
   const socialLinks = [
     {
       name: "GitHub",
-      icon: Github,
+      icon: FaGithub,
       href: "https://github.com/sebastianmena",
       color: "hover:text-gray-600",
     },
     {
       name: "LinkedIn",
-      icon: Linkedin,
+      icon: FaLinkedinIn,
       href: "https://linkedin.com/in/sebastianmena",
       color: "hover:text-blue-600",
     },
     {
       name: "Email",
-      icon: Mail,
+      icon: FaEnvelope,
       href: "mailto:sebastian.mena@example.com",
       color: "hover:text-red-600",
     },
@@ -58,7 +58,7 @@ export const Footer = () => {
                 transition={{ delay: 0.3 }}
                 viewport={{ once: true }}
               >
-                Ingeniero de Software Full Stack
+                {t("hero.title")}
               </motion.p>
             </div>
 
@@ -83,7 +83,7 @@ export const Footer = () => {
                   <Button
                     variant="ghost"
                     size="icon"
-                    className={`text-m uted-foreground ${social.color} transition-all duration-300 hover:bg-muted/50`}
+                    className={`text-muted-foreground ${social.color} transition-all duration-300 hover:bg-muted/50`}
                     asChild
                   >
                     <a
@@ -117,7 +117,7 @@ export const Footer = () => {
               viewport={{ once: true }}
             >
               <p className="text-sm text-muted-foreground flex items-center justify-center gap-2">
-                {"Hecho con"}
+                {t("footer.madeWith")}
                 <motion.span
                   animate={{ scale: [1, 1.2, 1] }}
                   transition={{
@@ -126,12 +126,12 @@ export const Footer = () => {
                     repeatDelay: 2,
                   }}
                 >
-                  <Heart className="w-4 h-4 text-red-500 fill-current" />
+                  <FaHeart className="w-4 h-4 text-red-500 fill-current" />
                 </motion.span>
-                {"y mucho código"}
+                {t("footer.andCode")}
               </p>
               <p className="text-sm text-muted-foreground">
-                © 2024 Sebastian Mena. {"Todos los derechos reservados."}
+                © 2024 Sebastian Mena. {t("footer.allRightsReserved")}
               </p>
             </motion.div>
           </motion.div>
