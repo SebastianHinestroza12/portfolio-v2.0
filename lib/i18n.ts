@@ -97,11 +97,22 @@ const resources = {
         connectDescription:
           "Estoy siempre abierto a nuevas oportunidades y proyectos interesantes. No dudes en contactarme para discutir cómo podemos trabajar juntos.",
         formTitle: "Envíame un mensaje",
+        successTitle: "¡Éxito!",
+        successMessage: "Tu mensaje ha sido enviado correctamente.",
+        errorTitle: "Error",
+        errorMessage:
+          "Hubo un problema al enviar tu mensaje. Por favor inténtalo de nuevo.",
         form: {
           name: "Nombre",
           email: "Email",
           message: "Mensaje",
           send: "Enviar Mensaje",
+          sending: "Enviando...",
+        },
+        errors: {
+          name: "El nombre debe tener al menos 2 caracteres",
+          email: "Correo electrónico inválido",
+          message: "El mensaje debe tener al menos 10 caracteres",
         },
         info: {
           email: "Email",
@@ -212,11 +223,22 @@ const resources = {
         connectDescription:
           "I'm always open to new opportunities and interesting projects. Feel free to contact me to discuss how we can work together.",
         formTitle: "Send me a message",
+        successTitle: "Success!",
+        successMessage: "Your message has been sent successfully.",
+        errorTitle: "Error",
+        errorMessage:
+          "There was a problem sending your message. Please try again.",
         form: {
           name: "Name",
           email: "Email",
           message: "Message",
           send: "Send Message",
+          sending: "Sending...",
+        },
+        errors: {
+          name: "Name must be at least 2 characters",
+          email: "Invalid email address",
+          message: "Message must be at least 10 characters",
         },
         info: {
           email: "Email",

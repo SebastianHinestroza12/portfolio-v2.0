@@ -1,7 +1,6 @@
 "use client";
 
 import type React from "react";
-import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -17,28 +16,92 @@ import {
   FaPaperPlane,
 } from "react-icons/fa";
 import { socialLinks } from "@/constants/socialLinks";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { toast, ToastContainer } from "react-toastify";
 
 export const ContactSection = () => {
-  const { t } = useTranslation();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
+  const { t, i18n } = useTranslation();
+
+  const formSchema = z.object({
+    name: z.string().min(2, {
+      message:
+        i18n.language === "es"
+          ? "El nombre debe tener al menos 2 caracteres"
+          : "Name must be at least 2 characters",
+    }),
+    email: z.string().email({
+      message:
+        i18n.language === "es"
+          ? "Correo electrónico inválido"
+          : "Invalid email address",
+    }),
+    message: z.string().min(10, {
+      message:
+        i18n.language === "es"
+          ? "El mensaje debe tener al menos 10 caracteres"
+          : "Message must be at least 10 characters",
+    }),
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
-  };
+  type FormData = z.infer<typeof formSchema>;
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting, isValid },
+  } = useForm<FormData>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      message:
+        i18n.language === "es"
+          ? "¡Hola! Estoy interesado en tu trabajo y me gustaría discutir una posible colaboración."
+          : "Hello! I'm interested in your work and would like to discuss a potential collaboration.",
+    },
+    mode: "onChange",
+  });
+
+  const onSubmit = async (data: FormData) => {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    try {
+      const response = await fetch("https://formspree.io/f/xnqkppbd", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        toast.success(t("contact.successMessage"), {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        reset();
+      } else {
+        throw new Error("Failed to submit form");
+      }
+    } catch (error) {
+      toast.error(t("contact.errorMessage"), {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
   };
 
   const contactInfo = [
@@ -54,7 +117,7 @@ export const ContactSection = () => {
       title: t("contact.info.phone"),
       value: "+57 323 288 3290",
       color: "bg-green-500",
-      href: "tel:+573232883290",
+      href: socialLinks.whatsapp,
     },
     {
       icon: FaMapMarkerAlt,
@@ -70,7 +133,7 @@ export const ContactSection = () => {
       id="contact"
       className="py-20 bg-muted/30 relative overflow-hidden"
     >
-      {/* Background Animation */}
+      <ToastContainer />
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
           className="absolute top-1/4 right-1/4 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl"
@@ -206,9 +269,21 @@ export const ContactSection = () => {
               viewport={{ once: true }}
             >
               {[
-                { icon: FaGithub, href: "#", color: "hover:bg-gray-600" },
-                { icon: FaLinkedinIn, href: "#", color: "hover:bg-blue-600" },
-                { icon: FaEnvelope, href: "#", color: "hover:bg-green-600" },
+                {
+                  icon: FaGithub,
+                  href: socialLinks.github,
+                  color: "hover:bg-gray-600",
+                },
+                {
+                  icon: FaLinkedinIn,
+                  href: socialLinks.linkedin,
+                  color: "hover:bg-blue-600",
+                },
+                {
+                  icon: FaEnvelope,
+                  href: socialLinks.email,
+                  color: "hover:bg-green-600",
+                },
               ].map((social, index) => (
                 <motion.div
                   key={index}
@@ -219,8 +294,15 @@ export const ContactSection = () => {
                     variant="outline"
                     size="icon"
                     className={`border-2 transition-all duration-300 ${social.color} hover:text-white shadow-lg hover:shadow-xl`}
+                    asChild
                   >
-                    <social.icon className="w-5 h-5" />
+                    <a
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <social.icon className="w-5 h-5" />
+                    </a>
                   </Button>
                 </motion.div>
               ))}
@@ -241,54 +323,69 @@ export const ContactSection = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
                     viewport={{ once: true }}
+                    className="space-y-2"
                   >
                     <Input
-                      name="name"
+                      {...register("name")}
                       placeholder={t("contact.form.name")}
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
                       className="border-2 focus:border-blue-500 transition-colors"
+                      aria-invalid={errors.name ? "true" : "false"}
                     />
+                    {errors.name && (
+                      <p className="text-sm text-red-500 mt-1" role="alert">
+                        {errors.name.message}
+                      </p>
+                    )}
                   </motion.div>
+
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 }}
                     viewport={{ once: true }}
+                    className="space-y-2"
                   >
                     <Input
-                      name="email"
+                      {...register("email")}
                       type="email"
                       placeholder={t("contact.form.email")}
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
                       className="border-2 focus:border-blue-500 transition-colors"
+                      aria-invalid={errors.email ? "true" : "false"}
                     />
+                    {errors.email && (
+                      <p className="text-sm text-red-500 mt-1" role="alert">
+                        {errors.email.message}
+                      </p>
+                    )}
                   </motion.div>
+
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 }}
                     viewport={{ once: true }}
+                    className="space-y-2"
                   >
                     <Textarea
-                      name="message"
+                      {...register("message")}
                       placeholder={t("contact.form.message")}
-                      value={formData.message}
-                      onChange={handleChange}
                       rows={5}
-                      required
                       className="border-2 focus:border-blue-500 transition-colors resize-none"
+                      aria-invalid={errors.message ? "true" : "false"}
                     />
+                    {errors.message && (
+                      <p className="text-sm text-red-500 mt-1" role="alert">
+                        {errors.message.message}
+                      </p>
+                    )}
                   </motion.div>
+
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -301,9 +398,12 @@ export const ContactSection = () => {
                       type="submit"
                       className="w-full bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl transition-all duration-300"
                       size="lg"
+                      disabled={isSubmitting || !isValid}
                     >
                       <FaPaperPlane className="w-4 h-4 mr-2" />
-                      {t("contact.form.send")}
+                      {isSubmitting
+                        ? t("contact.form.sending")
+                        : t("contact.form.send")}
                     </Button>
                   </motion.div>
                 </form>
