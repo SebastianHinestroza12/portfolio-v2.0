@@ -92,23 +92,88 @@ const resources = {
         title: "Proyectos Destacados",
         viewDemo: "Ver Demo",
         viewCode: "Ver Código",
+        viewVideo: "Ver Video",
+        noPreview: "Vista previa no disponible",
         items: [
           {
+            id: 1,
             title: "Cryp Wallet - Monedero Virtual de Criptomonedas",
             description:
-              "Billetera virtual de criptomonedas que permite comprar, enviar, intercambiar y recibir criptomonedas de forma segura y eficiente. Desarrollada con tecnologías modernas, ofrece una interfaz intuitiva adaptada tanto a nuevos usuarios como a inversores experimentados.",
-            technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
-          },
-          {
-            title: "Sistema de Agenda Completo",
-            description:
-              "Sistema integral de gestión de citas desarrollado desde cero. Incluye análisis de requisitos, arquitectura de base de datos, backend, frontend y despliegue a producción. Manejo completo del ciclo de vida del desarrollo de software.",
+              "Billetera virtual de criptomonedas que permite comprar, enviar, intercambiar y recibir criptomonedas de forma segura y eficiente. Desarrollé tanto el frontend como el backend de esta aplicación, implementando autenticación JWT, gestión de transacciones y una interfaz intuitiva. El sistema utiliza Docker para containerización y PostgreSQL como base de datos principal.",
+            link: "https://cryp-wallet.vercel.app",
+            video:
+              "https://www.linkedin.com/posts/sebastian-mena12_opentowork-backend-frontend-activity-7226714714947416065-GvHM?utm_source=share&utm_medium=member_desktop&rcm=ACoAADpbUl4BuYZg0_ePKvoSpG2xgeZV35nDL-U",
+            repositories: [
+              {
+                name: "Frontend",
+                url: "https://github.com/SebastianHinestroza12/CrypWallet-webapp",
+              },
+              {
+                name: "Backend",
+                url: "https://github.com/SebastianHinestroza12/CrypWallet-api",
+              },
+            ],
             technologies: [
-              "NestJS",
               "React",
               "TypeScript",
-              "Docker",
+              "Node.js",
+              "Express",
               "PostgreSQL",
+              "Docker",
+              "Chakra UI",
+              "Zustand",
+            ],
+            images: [
+              "https://res.cloudinary.com/dafsjo7al/image/upload/v1723246216/Macbook-Air-cryp-wallet.vercel.app_olaihw.webp",
+              "https://res.cloudinary.com/dafsjo7al/image/upload/v1723246217/Macbook-Air-cryp-wallet.vercel.app-_1__vhb5cz.webp",
+              "https://res.cloudinary.com/dafsjo7al/image/upload/v1723246212/Macbook-Air-cryp-wallet.vercel.app-_2__acnqch.webp",
+              "https://res.cloudinary.com/dafsjo7al/image/upload/v1723246211/Macbook-Air-cryp-wallet.vercel.app-_3__x6ucwb.webp",
+              "https://res.cloudinary.com/dafsjo7al/image/upload/v1723246212/Macbook-Air-cryp-wallet.vercel.app-_4__dx77ws.webp",
+              "https://res.cloudinary.com/dafsjo7al/image/upload/v1723246213/Macbook-Air-cryp-wallet.vercel.app-_5__wm9o4w.webp",
+              "https://res.cloudinary.com/dafsjo7al/image/upload/v1723246214/Macbook-Air-cryp-wallet.vercel.app-_6__gvtohc.webp",
+              "https://res.cloudinary.com/dafsjo7al/image/upload/v1723246214/Macbook-Air-cryp-wallet.vercel.app-_7__sbug9r.webp",
+              "https://res.cloudinary.com/dafsjo7al/image/upload/v1723246215/Macbook-Air-cryp-wallet.vercel.app-_8__sx2okg.webp",
+            ],
+          },
+          {
+            id: 2,
+            title: "Agendarte - Sistema de Gestión Empresarial",
+            description: `
+              Sistema completo de gestión empresarial desarrollado como solución principal para Pedbox S.A.S. Como desarrollador principal, lideré la creación de esta plataforma desde cero, diseñando la arquitectura, implementando todos los módulos y desplegando a producción. Este proyecto representa uno de mis mayores logros profesionales, con un sistema que incluye:
+          
+              • Gestión completa de citas y agenda
+              • Administración de múltiples sucursales
+              • Control de profesionales y servicios
+              • Roles y permisos personalizados
+              • Portal público para clientes
+              • Dashboard administrativo avanzado
+              • Configuraciones empresariales completas
+              • Sistema completamente responsive
+              • Integración con SMTP personalizado
+              • Reportes y estadísticas avanzadas
+          
+              Por políticas de privacidad de la empresa, no puedo compartir enlaces públicos ni código fuente, pero estoy disponible para discutir detalles técnicos en entrevistas personales. Este proyecto demostró mi capacidad para manejar sistemas complejos a escala de producción.
+            `,
+            technologies: [
+              "TypeScript",
+              "NestJS",
+              "MySQL",
+              "TypeORM",
+              "Docker",
+              "JWT",
+              "React",
+              "Vite",
+              "ShadCN",
+              "Tailwind",
+              "SCSS",
+              "TanStack Query",
+            ],
+            images: [
+              "https://res.cloudinary.com/dafsjo7al/image/upload/v1750560436/Macbook-Air-agendarte.com.co_1_k1z7w4.png",
+              "https://res.cloudinary.com/dafsjo7al/image/upload/v1750560436/Macbook-Air-agendarte.com.co_xe57tq.png",
+              "https://res.cloudinary.com/dafsjo7al/image/upload/v1750561824/Macbook-Air-agendarte.com.co_2_ogcshy.png",
+              "https://res.cloudinary.com/dafsjo7al/image/upload/v1750561824/Macbook-Air-agendarte.com.co_4_xau7ar.png",
+              "https://res.cloudinary.com/dafsjo7al/image/upload/v1750561824/Macbook-Air-agendarte.com.co_3_cdgo39.png",
             ],
           },
         ],
@@ -245,23 +310,87 @@ const resources = {
         title: "Featured Projects",
         viewDemo: "View Demo",
         viewCode: "View Code",
+        viewVideo: "Watch Video",
+        noPreview: "Preview not available",
         items: [
           {
+            id: 1,
             title: "Cryp Wallet - Virtual Cryptocurrency Wallet",
             description:
-              "Virtual cryptocurrency wallet that allows buying, sending, exchanging, and receiving cryptocurrencies securely and efficiently. Developed with modern technologies, it offers an intuitive interface adapted for both new users and experienced investors.",
-            technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
-          },
-          {
-            title: "Complete Appointment System",
-            description:
-              "Comprehensive appointment management system developed from scratch. Includes requirements analysis, database architecture, backend, frontend, and production deployment. Complete software development lifecycle management.",
+              "Virtual cryptocurrency wallet that allows buying, sending, exchanging, and receiving cryptocurrencies securely and efficiently. I developed both the frontend and backend of this application, implementing JWT authentication, transaction management, and an intuitive interface. The system uses Docker for containerization and PostgreSQL as the main database.",
+            link: "https://cryp-wallet.vercel.app",
+            video: "https://youtu.be/your-cryp-wallet-video",
+            repositories: [
+              {
+                name: "Frontend",
+                url: "https://github.com/SebastianHinestroza12/CrypWallet-webapp",
+              },
+              {
+                name: "Backend",
+                url: "https://github.com/SebastianHinestroza12/CrypWallet-api",
+              },
+            ],
             technologies: [
-              "NestJS",
               "React",
               "TypeScript",
-              "Docker",
+              "Node.js",
+              "Express",
               "PostgreSQL",
+              "Docker",
+              "Chakra UI",
+              "Zustand",
+            ],
+            images: [
+              "https://res.cloudinary.com/dafsjo7al/image/upload/v1723246216/Macbook-Air-cryp-wallet.vercel.app_olaihw.webp",
+              "https://res.cloudinary.com/dafsjo7al/image/upload/v1723246217/Macbook-Air-cryp-wallet.vercel.app-_1__vhb5cz.webp",
+              "https://res.cloudinary.com/dafsjo7al/image/upload/v1723246212/Macbook-Air-cryp-wallet.vercel.app-_2__acnqch.webp",
+              "https://res.cloudinary.com/dafsjo7al/image/upload/v1723246211/Macbook-Air-cryp-wallet.vercel.app-_3__x6ucwb.webp",
+              "https://res.cloudinary.com/dafsjo7al/image/upload/v1723246212/Macbook-Air-cryp-wallet.vercel.app-_4__dx77ws.webp",
+              "https://res.cloudinary.com/dafsjo7al/image/upload/v1723246213/Macbook-Air-cryp-wallet.vercel.app-_5__wm9o4w.webp",
+              "https://res.cloudinary.com/dafsjo7al/image/upload/v1723246214/Macbook-Air-cryp-wallet.vercel.app-_6__gvtohc.webp",
+              "https://res.cloudinary.com/dafsjo7al/image/upload/v1723246214/Macbook-Air-cryp-wallet.vercel.app-_7__sbug9r.webp",
+              "https://res.cloudinary.com/dafsjo7al/image/upload/v1723246215/Macbook-Air-cryp-wallet.vercel.app-_8__sx2okg.webp",
+            ],
+          },
+          {
+            id: 2,
+            title: "Agendarte - Enterprise Management System",
+            description: `
+              Complete enterprise management system developed as the core solution for Pedbox S.A.S. As lead developer, I spearheaded the creation of this platform from scratch, designing the architecture, implementing all modules, and deploying to production. This project represents one of my greatest professional achievements, featuring:
+          
+              • Comprehensive appointment scheduling
+              • Multi-branch management
+              • Professional and service administration
+              • Custom roles and permissions
+              • Client-facing public portal
+              • Advanced admin dashboard
+              • Complete business configurations
+              • Fully responsive system
+              • Custom SMTP integration
+              • Advanced reporting and statistics
+          
+              Due to company privacy policies, I cannot share public links or source code, but I'm available to discuss technical details in personal interviews. This project demonstrated my ability to handle complex systems at production scale.
+            `,
+            technologies: [
+              "TypeScript",
+              "NestJS",
+              "MySQL",
+              "TypeORM",
+              "Docker",
+              "JWT",
+              "React",
+              "Vite",
+              "ShadCN",
+              "Tailwind",
+              "SCSS",
+              "TanStack Query",
+            ],
+            images: [
+              "https://res.cloudinary.com/dafsjo7al/image/upload/v1750560436/Macbook-Air-agendarte.com.co_1_k1z7w4.png",
+              "https://res.cloudinary.com/dafsjo7al/image/upload/v1750560436/Macbook-Air-agendarte.com.co_xe57tq.png",
+              "https://res.cloudinary.com/dafsjo7al/image/upload/v1750561824/Macbook-Air-agendarte.com.co_2_ogcshy.png",
+              "https://res.cloudinary.com/dafsjo7al/image/upload/v1750561824/Macbook-Air-agendarte.com.co_4_xau7ar.png",
+              "https://res.cloudinary.com/dafsjo7al/image/upload/v1750561824/Macbook-Air-agendarte.com.co_3_cdgo39.png",
             ],
           },
         ],
