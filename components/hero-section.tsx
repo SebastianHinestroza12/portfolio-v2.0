@@ -17,7 +17,7 @@ export const HeroSection = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 md:pt-0"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-1 md:pt-0"
     >
       <div className="absolute inset-0 -z-10">
         <motion.div
