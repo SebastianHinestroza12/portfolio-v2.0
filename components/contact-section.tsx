@@ -338,7 +338,7 @@ export const ContactSection = () => {
                       aria-invalid={errors.name ? "true" : "false"}
                     />
                     {errors.name && (
-                      <p className="text-sm text-red-500 mt-1" role="alert">
+                      <p className="text-sm text-red-500 mt-1">
                         {errors.name.message}
                       </p>
                     )}
@@ -359,7 +359,7 @@ export const ContactSection = () => {
                       aria-invalid={errors.email ? "true" : "false"}
                     />
                     {errors.email && (
-                      <p className="text-sm text-red-500 mt-1" role="alert">
+                      <p className="text-sm text-red-500 mt-1">
                         {errors.email.message}
                       </p>
                     )}
@@ -380,7 +380,7 @@ export const ContactSection = () => {
                       aria-invalid={errors.message ? "true" : "false"}
                     />
                     {errors.message && (
-                      <p className="text-sm text-red-500 mt-1" role="alert">
+                      <p className="text-sm text-red-500 mt-1">
                         {errors.message.message}
                       </p>
                     )}
