@@ -180,7 +180,50 @@ const resources = {
       },
       technologies: {
         title: "Tecnologías",
-        categories: ["Backend", "Herramientas", "Frontend"],
+        categories: [
+          {
+            title: "Backend",
+            technologies: [
+              { name: "Node.js", icon: "logos:nodejs-icon-alt" },
+              { name: "Express", icon: "skill-icons:expressjs-dark" },
+              { name: "NestJS", icon: "logos:nestjs" },
+              { name: "Laravel", icon: "logos:laravel" },
+              { name: "PHP", icon: "logos:php" },
+              { name: "Python", icon: "logos:python" },
+              { name: "Django", icon: "logos:django-icon" },
+              { name: "Flask", icon: "logos:flask" },
+              { name: "MongoDB", icon: "vscode-icons:file-type-mongo" },
+              { name: "MySQL", icon: "devicon:mysql" },
+              { name: "PostgreSQL", icon: "logos:postgresql" },
+            ],
+          },
+          {
+            title: "Frontend",
+            technologies: [
+              { name: "TypeScript", icon: "devicon:typescript" },
+              { name: "JavaScript", icon: "logos:javascript" },
+              { name: "React", icon: "logos:react" },
+              { name: "Next.js", icon: "logos:nextjs-icon" },
+              { name: "React Native", icon: "skill-icons:react-dark" },
+              { name: "jQuery", icon: "devicon:jquery" },
+              { name: "HTML", icon: "vscode-icons:file-type-html" },
+              { name: "CSS", icon: "vscode-icons:file-type-css" },
+              { name: "Tailwind CSS", icon: "logos:tailwindcss-icon" },
+            ],
+          },
+          {
+            title: "Herramientas",
+            technologies: [
+              { name: "Docker", icon: "skill-icons:docker" },
+              { name: "Jest", icon: "vscode-icons:file-type-jest" },
+              { name: "Git", icon: "devicon:git" },
+              { name: "GitHub", icon: "skill-icons:github-light" },
+              { name: "Postman", icon: "devicon:postman" },
+              { name: "Jira", icon: "logos:jira" },
+              { name: "Figma", icon: "devicon:figma" },
+            ],
+          },
+        ],
       },
       contact: {
         title: "Contacto",
@@ -397,7 +440,50 @@ const resources = {
       },
       technologies: {
         title: "Technologies",
-        categories: ["Backend", "Tools", "Frontend"],
+        categories: [
+          {
+            title: "Backend",
+            technologies: [
+              { name: "Node.js", icon: "logos:nodejs-icon-alt" },
+              { name: "Express", icon: "skill-icons:expressjs-dark" },
+              { name: "NestJS", icon: "logos:nestjs" },
+              { name: "Laravel", icon: "logos:laravel" },
+              { name: "PHP", icon: "logos:php" },
+              { name: "Python", icon: "logos:python" },
+              { name: "Django", icon: "logos:django-icon" },
+              { name: "Flask", icon: "logos:flask" },
+              { name: "MongoDB", icon: "vscode-icons:file-type-mongo" },
+              { name: "MySQL", icon: "devicon:mysql" },
+              { name: "PostgreSQL", icon: "logos:postgresql" },
+            ],
+          },
+          {
+            title: "Frontend",
+            technologies: [
+              { name: "TypeScript", icon: "devicon:typescript" },
+              { name: "JavaScript", icon: "logos:javascript" },
+              { name: "React", icon: "logos:react" },
+              { name: "Next.js", icon: "logos:nextjs-icon" },
+              { name: "React Native", icon: "skill-icons:react-dark" },
+              { name: "jQuery", icon: "devicon:jquery" },
+              { name: "HTML", icon: "vscode-icons:file-type-html" },
+              { name: "CSS", icon: "vscode-icons:file-type-css" },
+              { name: "Tailwind CSS", icon: "logos:tailwindcss-icon" },
+            ],
+          },
+          {
+            title: "Tools",
+            technologies: [
+              { name: "Docker", icon: "skill-icons:docker" },
+              { name: "Jest", icon: "vscode-icons:file-type-jest" },
+              { name: "Git", icon: "devicon:git" },
+              { name: "GitHub", icon: "skill-icons:github-light" },
+              { name: "Postman", icon: "devicon:postman" },
+              { name: "Jira", icon: "logos:jira" },
+              { name: "Figma", icon: "devicon:figma" },
+            ],
+          },
+        ],
       },
       contact: {
         title: "Contact",

@@ -1,73 +1,67 @@
-"use client"
+"use client";
 
-import { useTranslation } from "react-i18next"
-import { motion } from "framer-motion"
-import { Card, CardContent } from "@/components/ui/card"
-import { Icon } from "@iconify/react"
-
-const technologiesData = [
-  {
-    title: "Backend",
-    color: "from-red-500 to-orange-500",
-    technologies: [
-      { name: "Node.js", icon: "logos:nodejs-icon-alt" },
-      { name: "Express", icon: "skill-icons:expressjs-dark" },
-      { name: "NestJS", icon: "logos:nestjs" },
-      { name: "Laravel", icon: "logos:laravel" },
-      { name: "PHP", icon: "logos:php" },
-      { name: "Python", icon: "logos:python" },
-      { name: "Django", icon: "logos:django-icon" },
-      { name: "Flask", icon: "logos:flask" },
-      { name: "MongoDB", icon: "vscode-icons:file-type-mongo" },
-      { name: "MySQL", icon: "devicon:mysql" },
-      { name: "PostgreSQL", icon: "logos:postgresql" },
-    ],
-  },
-  {
-    title: "Frontend",
-    color: "from-blue-500 to-cyan-500",
-    technologies: [
-      { name: "TypeScript", icon: "devicon:typescript" },
-      { name: "JavaScript", icon: "logos:javascript" },
-      { name: "React", icon: "logos:react" },
-      { name: "Next.js", icon: "logos:nextjs-icon" },
-      { name: "React Native", icon: "skill-icons:react-dark" },
-      { name: "jQuery", icon: "devicon:jquery" },
-      { name: "HTML", icon: "vscode-icons:file-type-html" },
-      { name: "CSS", icon: "vscode-icons:file-type-css" },
-      { name: "Tailwind CSS", icon: "logos:tailwindcss-icon" },
-    ],
-  },
-  {
-    title: "Tools",
-    color: "from-purple-500 to-pink-500",
-    technologies: [
-      { name: "Docker", icon: "skill-icons:docker" },
-      { name: "Jest", icon: "vscode-icons:file-type-jest" },
-      { name: "Git", icon: "devicon:git" },
-      { name: "GitHub", icon: "skill-icons:github-light" },
-      { name: "Postman", icon: "devicon:postman" },
-      { name: "Jira", icon: "logos:jira" },
-      { name: "Figma", icon: "devicon:figma" },
-    ],
-  },
-]
+import { useRef, useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import { motion, useAnimation } from "framer-motion";
+import { Card, CardContent } from "@/components/ui/card";
+import { Icon } from "@iconify/react";
 
 export const TechnologiesSection = () => {
   const { t } = useTranslation();
+  const controls = useAnimation();
+  const containerRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  const categories = t("technologies.categories", {
+    returnObjects: true,
+  }) as Array<{
+    title: string;
+    technologies: Array<{ name: string; icon: string }>;
+  }>;
+
+  useEffect(() => {
+    const startAnimation = () => {
+      containerRefs.current.forEach((container, index) => {
+        if (container) {
+          const containerWidth = container.scrollWidth;
+          const animationDuration = 20 + index * 5;
+
+          controls.start({
+            x: [-containerWidth / 2, 0],
+            transition: {
+              x: {
+                duration: animationDuration,
+                ease: "linear",
+                repeat: Infinity,
+                repeatType: "loop",
+              },
+            },
+          });
+        }
+      });
+    };
+
+    startAnimation();
+  }, [categories, controls]);
+
+  const setContainerRef = (el: HTMLDivElement | null, index: number) => {
+    containerRefs.current[index] = el;
+  };
 
   return (
-    <section id="technologies" className="py-20">
+    <section
+      id="technologies"
+      className="py-12 md:py-20 bg-gradient-to-b from-muted/10 to-background"
+    >
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
           <motion.h2
-            className="text-4xl md:text-5xl font-bold mb-6 text-foreground"
+            className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 text-foreground"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
@@ -76,7 +70,7 @@ export const TechnologiesSection = () => {
             {t("technologies.title")}
           </motion.h2>
           <motion.div
-            className="w-24 h-1 bg-blue-600 mx-auto rounded-full"
+            className="w-24 h-1 bg-gradient-to-r from-blue-600 to-blue-400 mx-auto rounded-full"
             initial={{ width: 0 }}
             whileInView={{ width: 96 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -84,19 +78,19 @@ export const TechnologiesSection = () => {
           />
         </motion.div>
 
-        <div className="space-y-12 max-w-7xl mx-auto">
-          {technologiesData.map((category, categoryIndex) => (
+        <div className="space-y-10 md:space-y-16 max-w-7xl mx-auto">
+          {categories.map((category, categoryIndex) => (
             <motion.div
               key={categoryIndex}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: categoryIndex * 0.2 }}
               viewport={{ once: true }}
-              className="relative"
+              className="relative group overflow-hidden"
             >
-              <div className="text-center mb-8">
+              <div className="text-center mb-6 md:mb-8">
                 <motion.h3
-                  className="text-2xl font-bold text-foreground mb-4"
+                  className="text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400 mb-3 md:mb-4"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   transition={{ delay: 0.3 }}
@@ -104,96 +98,54 @@ export const TechnologiesSection = () => {
                 >
                   {category.title}
                 </motion.h3>
-                <motion.div
-                  className={`w-16 h-1 bg-gradient-to-r ${category.color} mx-auto rounded-full`}
-                  initial={{ width: 0 }}
-                  whileInView={{ width: 64 }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
-                  viewport={{ once: true }}
-                />
               </div>
 
-              {/* Horizontal Scroll Container */}
               <div className="relative overflow-hidden">
                 <motion.div
-                  className="flex space-x-6 pb-4"
-                  initial={{ x: -100 }}
-                  whileInView={{ x: 0 }}
-                  transition={{ duration: 1, delay: 0.5 }}
-                  viewport={{ once: true }}
-                  style={{
-                    width: `${category.technologies.length * 180}px`,
-                  }}
+                  ref={(el) => setContainerRef(el, categoryIndex)}
+                  className="flex py-2 md:py-4"
+                  animate={controls}
                 >
-                  {category.technologies.map((tech, techIndex) => (
-                    <motion.div
-                      key={tech.name}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 0.6 + techIndex * 0.05 }}
-                      viewport={{ once: true }}
-                      whileHover={{
-                        scale: 1.1,
-                        y: -10,
-                        transition: { duration: 0.2 },
-                      }}
-                      className="flex-shrink-0 w-40"
-                    >
-                      <Card className="h-32 border-0 shadow-lg hover:shadow-2xl transition-all duration-300 bg-background/70 backdrop-blur-sm group cursor-pointer">
-                        <CardContent className="p-6 flex flex-col items-center justify-center h-full">
-                          <motion.div
-                            whileHover={{ rotate: 360 }}
-                            transition={{ duration: 0.6 }}
-                            className="mb-3"
-                          >
-                            <Icon icon={tech.icon} className="w-10 h-10" />
-                          </motion.div>
-                          <span className="text-sm font-semibold text-center text-foreground group-hover:text-blue-600 transition-colors">
-                            {tech.name}
-                          </span>
-                        </CardContent>
-                      </Card>
-                    </motion.div>
-                  ))}
+                  {[...category.technologies, ...category.technologies].map(
+                    (tech, techIndex) => (
+                      <motion.div
+                        key={`${tech.name}-${techIndex}`}
+                        className="flex-shrink-0 px-2 md:px-3"
+                        whileHover={{
+                          scale: 1.1,
+                          y: -5,
+                          transition: { duration: 0.2 },
+                        }}
+                      >
+                        <Card className="w-24 h-24 md:w-36 md:h-36 border-0 shadow-md hover:shadow-lg transition-all duration-300 bg-background/80 backdrop-blur-sm cursor-pointer">
+                          <CardContent className="p-3 md:p-6 flex flex-col items-center justify-center h-full">
+                            <motion.div
+                              whileHover={{
+                                rotate: 360,
+                                transition: { duration: 0.6 },
+                              }}
+                              className="mb-2 md:mb-4"
+                            >
+                              <Icon
+                                icon={tech.icon}
+                                className="w-8 h-8 md:w-12 md:h-12 text-blue-600 dark:text-blue-400"
+                              />
+                            </motion.div>
+                            <span className="text-xs md:text-sm font-semibold text-center text-foreground group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                              {tech.name}
+                            </span>
+                          </CardContent>
+                        </Card>
+                      </motion.div>
+                    ),
+                  )}
                 </motion.div>
 
-                {/* Gradient Overlays for scroll effect */}
-                <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-background to-transparent pointer-events-none z-10" />
-                <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-background to-transparent pointer-events-none z-10" />
+                <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-background to-transparent pointer-events-none z-10" />
+                <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-background to-transparent pointer-events-none z-10" />
               </div>
             </motion.div>
           ))}
-        </div>
-
-        {/* Floating Animation Background */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <motion.div
-            className="absolute top-1/4 left-1/4 w-32 h-32 bg-blue-500/5 rounded-full blur-xl"
-            animate={{
-              x: [0, 100, 0],
-              y: [0, -50, 0],
-              scale: [1, 1.2, 1],
-            }}
-            transition={{
-              duration: 8,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "easeInOut",
-            }}
-          />
-          <motion.div
-            className="absolute bottom-1/4 right-1/4 w-24 h-24 bg-purple-500/5 rounded-full blur-xl"
-            animate={{
-              x: [0, -80, 0],
-              y: [0, 60, 0],
-              scale: [1.2, 1, 1.2],
-            }}
-            transition={{
-              duration: 10,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "easeInOut",
-              delay: 2,
-            }}
-          />
         </div>
       </div>
     </section>
