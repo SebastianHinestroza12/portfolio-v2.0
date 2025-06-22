@@ -105,10 +105,11 @@ export const HeroSection = () => {
                 <div className="w-full h-full rounded-full bg-background p-2">
                   <div className="w-full h-full rounded-full overflow-hidden">
                     <Image
-                      src="https://res.cloudinary.com/dafsjo7al/image/upload/v1750565310/IMG_0178_ef8bkf.jpg?height=200&width=200"
+                      src="https://res.cloudinary.com/dafsjo7al/image/upload/v1750615569/1747657753243_uu9fz7.webp?height=200&width=200"
                       alt="Sebastian Mena"
                       width={200}
                       height={200}
+                      layout="responsive"
                       className="w-full h-full object-cover"
                       priority
                     />
@@ -121,9 +122,10 @@ export const HeroSection = () => {
                   <div className="w-full h-full rounded-full bg-background p-2">
                     <div className="w-full h-full rounded-full overflow-hidden shadow-2xl">
                       <Image
-                        src="https://res.cloudinary.com/dafsjo7al/image/upload/v1750565310/IMG_0178_ef8bkf.jpg?height=200&width=200"
+                        src="https://res.cloudinary.com/dafsjo7al/image/upload/v1750615569/1747657753243_uu9fz7.webp?height=200&width=200"
                         alt="Sebastian Mena - Full Stack Developer"
                         width={200}
+                        layout="responsive"
                         height={200}
                         className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                         priority

@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./theme-toggle";
 import { LanguageSwitcher } from "./language-switcher";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-scroll";
 
 export const Navbar = () => {
   const { t } = useTranslation();
@@ -22,12 +23,12 @@ export const Navbar = () => {
   }, []);
 
   const navItems = [
-    { key: "home", href: "#home" },
-    { key: "about", href: "#about" },
-    { key: "projects", href: "#projects" },
-    { key: "technologies", href: "#technologies" },
-    { key: "experience", href: "#experience" },
-    { key: "contact", href: "#contact" },
+    { key: "home", to: "#home" },
+    { key: "about", to: "#about" },
+    { key: "projects", to: "#projects" },
+    { key: "technologies", to: "#technologies" },
+    { key: "experience", to: "#experience" },
+    { key: "contact", to: "#contact" },
   ];
 
   const scrollToSection = (href: string) => {
@@ -68,7 +69,7 @@ export const Navbar = () => {
             {navItems.map((item) => (
               <motion.button
                 key={item.key}
-                onClick={() => scrollToSection(item.href)}
+                onClick={() => scrollToSection(item.to)}
                 className="relative px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors group"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -122,17 +123,15 @@ export const Navbar = () => {
             >
               <div className="py-4 space-y-2">
                 {navItems.map((item, index) => (
-                  <motion.button
+                  <Link
                     key={item.key}
-                    onClick={() => scrollToSection(item.href)}
-                    className="block w-full text-left px-4 py-3 text-sm font-medium text-foreground/80 hover:text-foreground hover:bg-muted/50 transition-colors rounded-lg mx-2"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    whileTap={{ scale: 0.95 }}
+                    to={item.to}
+                    smooth={true}
+                    duration={500}
+                    offset={-80}
                   >
                     {t(`nav.${item.key}`)}
-                  </motion.button>
+                  </Link>
                 ))}
               </div>
             </motion.div>
