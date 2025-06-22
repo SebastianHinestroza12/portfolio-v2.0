@@ -23,12 +23,39 @@ const resources = {
       about: {
         title: "Sobre mí",
         description:
-          "Soy un ingeniero de software apasionado por crear soluciones tecnológicas innovadoras. Con más de 2 años de experiencia en el desarrollo full-stack, me especializo en construir aplicaciones web y móviles escalables, mantenibles y de alta calidad.",
+          "Soy un ingeniero de software full-stack con una fuerte orientación hacia el backend. Especializado en arquitectura de software escalable, diseño de APIs RESTful y microservicios. Me apasiona crear soluciones robustas, eficientes y bien estructuradas que cumplan con los más altos estándares de calidad.",
         highlights: [
           "Desarrollo de aplicaciones desde cero",
           "Arquitectura de software escalable",
           "Buenas prácticas y patrones de diseño",
           "Experiencia en todo el ciclo de vida del software",
+          "Optimización de rendimiento y escalabilidad",
+          "Implementación de seguridad y buenas prácticas",
+        ],
+        backendTitle: "Experiencia en Backend",
+        backendExpertise: [
+          "Diseño de APIs RESTful siguiendo JSON:API",
+          "Arquitectura de microservicios",
+          "Optimización de consultas y bases de datos",
+          "Implementación de autenticación JWT/OAuth",
+          "Paginación, filtros y búsquedas avanzadas",
+          "Caching y manejo de estado distribuido",
+        ],
+        stats: [
+          { icon: "Code", label: "Años de Experiencia", value: "2+" },
+          { icon: "Target", label: "Proyectos Completados", value: "15+" },
+          { icon: "Server", label: "APIs Desarrolladas", value: "20+" },
+          { icon: "Layers", label: "Microservicios", value: "10+" },
+        ],
+        specialties: [
+          { icon: "Code", label: "Código Limpio" },
+          { icon: "Database", label: "Diseño de Bases de Datos" },
+          { icon: "Server", label: "Desarrollo de APIs" },
+          { icon: "Cpu", label: "Arquitectura de Sistemas" },
+          { icon: "GitBranch", label: "Flujo Git" },
+          { icon: "Network", label: "Microservicios" },
+          { icon: "Shield", label: "Seguridad de APIs" },
+          { icon: "Terminal", label: "Herramientas CLI" },
         ],
       },
       experience: {
@@ -149,12 +176,39 @@ const resources = {
       about: {
         title: "About Me",
         description:
-          "I'm a software engineer passionate about creating innovative technological solutions. With over 2 years of experience in full-stack development, I specialize in building scalable, maintainable, and high-quality web and mobile applications.",
+          "I'm a full-stack software engineer with a strong backend orientation. Specialized in scalable software architecture, RESTful API design, and microservices. I'm passionate about creating robust, efficient, and well-structured solutions that meet the highest quality standards.",
         highlights: [
           "Application development from scratch",
           "Scalable software architecture",
           "Best practices and design patterns",
           "Full software development lifecycle experience",
+          "Performance and scalability optimization",
+          "Security implementation and best practices",
+        ],
+        backendTitle: "Backend Expertise",
+        backendExpertise: [
+          "RESTful API design following JSON:API",
+          "Microservices architecture",
+          "Query and database optimization",
+          "JWT/OAuth authentication implementation",
+          "Pagination, filters and advanced search",
+          "Caching and distributed state management",
+        ],
+        stats: [
+          { icon: "Code", label: "Years of Experience", value: "2+" },
+          { icon: "Target", label: "Completed Projects", value: "15+" },
+          { icon: "Server", label: "APIs Developed", value: "20+" },
+          { icon: "Layers", label: "Microservices", value: "10+" },
+        ],
+        specialties: [
+          { icon: "Code", label: "Clean Code" },
+          { icon: "Database", label: "Database Design" },
+          { icon: "Server", label: "API Development" },
+          { icon: "Cpu", label: "System Architecture" },
+          { icon: "GitBranch", label: "Git Flow" },
+          { icon: "Network", label: "Microservices" },
+          { icon: "Shield", label: "API Security" },
+          { icon: "Terminal", label: "CLI Tools" },
         ],
       },
       experience: {
