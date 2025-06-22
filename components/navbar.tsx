@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { useTranslation } from "react-i18next"
-import { motion, AnimatePresence } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { ThemeToggle } from "./theme-toggle"
-import { LanguageSwitcher } from "./language-switcher"
-import { Menu, X } from "lucide-react"
+import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import { motion, AnimatePresence } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "./theme-toggle";
+import { LanguageSwitcher } from "./language-switcher";
+import { Menu, X } from "lucide-react";
 
 export const Navbar = () => {
   const { t } = useTranslation();
@@ -32,7 +32,12 @@ export const Navbar = () => {
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
-    element?.scrollIntoView({ behavior: "smooth" });
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
     setIsOpen(false);
   };
 
@@ -83,7 +88,6 @@ export const Navbar = () => {
             </div>
           </div>
 
-          {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center space-x-2">
             <ThemeToggle />
             <LanguageSwitcher />
@@ -114,7 +118,7 @@ export const Navbar = () => {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="md:hidden bg-background/95 backdrop-blur-lg border-t border-border/50"
+              className="md:hidden bg-background/95 backdrop-blur-lg border-t border-border/50 overflow-hidden"
             >
               <div className="py-4 space-y-2">
                 {navItems.map((item, index) => (
@@ -125,6 +129,7 @@ export const Navbar = () => {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
+                    whileTap={{ scale: 0.95 }}
                   >
                     {t(`nav.${item.key}`)}
                   </motion.button>
