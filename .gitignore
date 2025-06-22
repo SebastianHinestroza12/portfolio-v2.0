@@ -40,4 +40,4 @@ lerna-debug.log*
 
 # Administradores de paquetes
 package-lock.json
-pnpm-lock-yaml
+pnpm-lock.yaml
