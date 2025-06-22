@@ -11,6 +11,8 @@ const resources = {
         projects: "Proyectos",
         technologies: "Tecnologías",
         contact: "Contacto",
+        letsBuild: "Construyamos algo increíble",
+        contactMe: "Contáctame",
       },
       hero: {
         greeting: "¡Hola! Soy",
@@ -272,6 +274,8 @@ const resources = {
         projects: "Projects",
         technologies: "Technologies",
         contact: "Contact",
+        letsBuild: "Let's build something amazing",
+        contactMe: "Get In Touch",
       },
       hero: {
         greeting: "Hi! I'm",
