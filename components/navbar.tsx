@@ -33,13 +33,13 @@ export const Navbar = () => {
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
+
     if (element) {
       element.scrollIntoView({
         behavior: "smooth",
         block: "start",
       });
     }
-    setIsOpen(false);
   };
 
   return (
@@ -124,13 +124,24 @@ export const Navbar = () => {
               <div className="py-4 space-y-2">
                 {navItems.map((item, index) => (
                   <Link
+                    activeClass="active"
                     key={item.key}
-                    to={item.to}
+                    to={item.to.replace("#", "").trim()}
+                    spy={true}
                     smooth={true}
                     duration={500}
-                    offset={-80}
+                    offset={-23}
+                    onClick={() => setIsOpen(false)}
                   >
-                    {t(`nav.${item.key}`)}
+                    <motion.div
+                      className="block w-full text-left px-4 py-3 text-sm font-medium text-foreground/80 hover:text-foreground hover:bg-muted/50 transition-colors mx-2"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      {t(`nav.${item.key}`)}
+                    </motion.div>
                   </Link>
                 ))}
               </div>
