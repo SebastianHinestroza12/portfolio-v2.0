@@ -27,11 +27,13 @@ export const AboutSection = () => {
   const backendExpertise = t("about.backendExpertise", {
     returnObjects: true,
   }) as string[];
+
   const stats = t("about.stats", { returnObjects: true }) as Array<{
     icon: string;
     label: string;
     value: string;
   }>;
+
   const specialties = t("about.specialties", { returnObjects: true }) as Array<{
     icon: string;
     label: string;

@@ -111,7 +111,7 @@ export const HeroSection = () => {
                       height={200}
                       layout="responsive"
                       className="w-full h-full object-cover"
-                      priority={false}
+                      priority
                     />
                   </div>
                 </div>
@@ -128,7 +128,7 @@ export const HeroSection = () => {
                         layout="responsive"
                         height={200}
                         className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
-                        priority={false}
+                        priority
                       />
                     </div>
                   </div>

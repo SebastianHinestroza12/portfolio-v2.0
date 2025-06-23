@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { FaGithub, FaLinkedinIn, FaEnvelope, FaHeart } from "react-icons/fa";
+import { socialLinks as social } from "@/constants/socialLinks";
 
 export const Footer = () => {
   const { t } = useTranslation();
@@ -12,19 +13,19 @@ export const Footer = () => {
     {
       name: "GitHub",
       icon: FaGithub,
-      href: "https://github.com/sebastianmena",
+      href: social.github,
       color: "hover:text-gray-600",
     },
     {
       name: "LinkedIn",
       icon: FaLinkedinIn,
-      href: "https://linkedin.com/in/sebastianmena",
+      href: social.linkedin,
       color: "hover:text-blue-600",
     },
     {
       name: "Email",
       icon: FaEnvelope,
-      href: "mailto:sebastian.mena@example.com",
+      href: social.email,
       color: "hover:text-red-600",
     },
   ];
@@ -40,7 +41,6 @@ export const Footer = () => {
             viewport={{ once: true }}
             className="text-center space-y-8"
           >
-            {/* Main Info */}
             <div className="space-y-2">
               <motion.h3
                 className="text-2xl font-bold text-foreground"
@@ -62,7 +62,6 @@ export const Footer = () => {
               </motion.p>
             </div>
 
-            {/* Social Links */}
             <motion.div
               className="flex justify-center space-x-6"
               initial={{ opacity: 0 }}
@@ -99,7 +98,6 @@ export const Footer = () => {
               ))}
             </motion.div>
 
-            {/* Divider */}
             <motion.div
               className="w-full h-px bg-border/50"
               initial={{ scaleX: 0 }}
@@ -108,7 +106,6 @@ export const Footer = () => {
               viewport={{ once: true }}
             />
 
-            {/* Copyright */}
             <motion.div
               className="space-y-2"
               initial={{ opacity: 0 }}
