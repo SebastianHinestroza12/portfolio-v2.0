@@ -15,81 +15,92 @@ export const Footer = () => {
       icon: FaGithub,
       href: social.github,
       color: "hover:text-gray-600",
+      ariaLabel: t("aria.github"),
     },
     {
       name: "LinkedIn",
       icon: FaLinkedinIn,
       href: social.linkedin,
       color: "hover:text-blue-600",
+      ariaLabel: t("aria.linkedin"),
     },
     {
       name: "Email",
       icon: FaEnvelope,
       href: social.email,
       color: "hover:text-red-600",
+      ariaLabel: t("aria.email"),
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 10, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.4 },
+    },
+  };
+
   return (
-    <footer className="bg-background border-t border-border/50 py-12">
+    <footer
+      className="bg-background border-t border-border/50 py-12"
+      aria-labelledby="footer-heading"
+    >
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
+            variants={containerVariants}
             className="text-center space-y-8"
           >
-            <div className="space-y-2">
-              <motion.h3
+            <motion.div variants={itemVariants} className="space-y-2">
+              <h3
+                id="footer-heading"
                 className="text-2xl font-bold text-foreground"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ delay: 0.2 }}
-                viewport={{ once: true }}
               >
                 Sebastian Mena
-              </motion.h3>
-              <motion.p
-                className="text-muted-foreground font-medium"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ delay: 0.3 }}
-                viewport={{ once: true }}
-              >
+              </h3>
+              <p className="text-muted-foreground font-medium">
                 {t("hero.title")}
-              </motion.p>
-            </div>
+              </p>
+            </motion.div>
 
             <motion.div
+              variants={containerVariants}
               className="flex justify-center space-x-6"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.4 }}
-              viewport={{ once: true }}
             >
               {socialLinks.map((social, index) => (
                 <motion.div
                   key={social.name}
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  whileTap={{ scale: 0.9 }}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 + index * 0.1 }}
-                  viewport={{ once: true }}
+                  variants={itemVariants}
+                  custom={index}
+                  whileHover={{ y: -2 }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   <Button
                     variant="ghost"
                     size="icon"
-                    className={`text-muted-foreground ${social.color} transition-all duration-300 hover:bg-muted/50`}
+                    className={`text-muted-foreground ${social.color} transition-colors hover:bg-muted/50`}
                     asChild
+                    aria-label={social.ariaLabel}
                   >
                     <a
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label={social.name}
                     >
                       <social.icon className="h-5 w-5" />
                     </a>
@@ -99,36 +110,36 @@ export const Footer = () => {
             </motion.div>
 
             <motion.div
+              variants={{
+                hidden: { scaleX: 0 },
+                visible: {
+                  scaleX: 1,
+                  transition: { duration: 0.6, ease: "easeOut" },
+                },
+              }}
               className="w-full h-px bg-border/50"
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              viewport={{ once: true }}
             />
 
-            <motion.div
-              className="space-y-2"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.7 }}
-              viewport={{ once: true }}
-            >
+            <motion.div variants={itemVariants} className="space-y-2">
               <p className="text-sm text-muted-foreground flex items-center justify-center gap-2">
                 {t("footer.madeWith")}
                 <motion.span
-                  animate={{ scale: [1, 1.2, 1] }}
+                  animate={{ scale: [1, 1.1, 1] }}
                   transition={{
-                    duration: 1,
-                    repeat: Number.POSITIVE_INFINITY,
-                    repeatDelay: 2,
+                    duration: 1.5,
+                    repeat: Infinity,
+                    repeatDelay: 3,
+                    ease: "easeInOut",
                   }}
+                  aria-hidden="true"
                 >
                   <FaHeart className="w-4 h-4 text-red-500 fill-current" />
                 </motion.span>
                 {t("footer.andCode")}
               </p>
               <p className="text-sm text-muted-foreground">
-                © 2024 Sebastian Mena. {t("footer.allRightsReserved")}
+                © {new Date().getFullYear()} Sebastian Mena.{" "}
+                {t("footer.allRightsReserved")}
               </p>
             </motion.div>
           </motion.div>

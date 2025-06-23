@@ -1,5 +1,6 @@
 "use client";
 
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -8,7 +9,6 @@ import { Badge } from "@/components/ui/badge";
 import { Github, Globe, Play } from "lucide-react";
 import Image from "next/image";
 import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 export const ProjectsSection = () => {
   const { t } = useTranslation();
@@ -28,17 +28,17 @@ export const ProjectsSection = () => {
     <section id="projects" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
           <motion.h2
             className="text-4xl md:text-5xl font-bold mb-6 text-foreground"
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.4 }}
             viewport={{ once: true }}
           >
             {t("projects.title")}
@@ -47,7 +47,7 @@ export const ProjectsSection = () => {
             className="w-24 h-1 bg-blue-600 mx-auto rounded-full"
             initial={{ width: 0 }}
             whileInView={{ width: 96 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           />
         </motion.div>
@@ -56,14 +56,14 @@ export const ProjectsSection = () => {
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              whileHover={{ y: -10 }}
+              whileHover={{ y: -5 }}
               className="group"
             >
-              <Card className="h-full shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden bg-background/70 backdrop-blur-sm border-0">
+              <Card className="h-full shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden bg-background/70 backdrop-blur-sm border-0">
                 <div className="relative h-64 bg-muted overflow-hidden">
                   {project.images.length > 0 ? (
                     <Carousel
@@ -71,7 +71,7 @@ export const ProjectsSection = () => {
                       showStatus={false}
                       infiniteLoop
                       autoPlay
-                      interval={4000}
+                      interval={5000}
                       showArrows={project.images.length > 1}
                       showIndicators={project.images.length > 1}
                       className="h-full"
@@ -112,67 +112,52 @@ export const ProjectsSection = () => {
 
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech) => (
-                      <motion.div
+                      <Badge
                         key={tech}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
+                        variant="secondary"
+                        className="bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-300 font-medium"
                       >
-                        <Badge
-                          variant="secondary"
-                          className="bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-300 font-medium"
-                        >
-                          {tech}
-                        </Badge>
-                      </motion.div>
+                        {tech}
+                      </Badge>
                     ))}
                   </div>
 
                   <div className="flex flex-col gap-3 pt-4">
                     <div className="flex flex-wrap gap-3">
                       {project.link && (
-                        <motion.div
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
+                        <Button
+                          variant="default"
+                          size="sm"
+                          className="bg-blue-600 hover:bg-blue-700 text-white shadow-md hover:shadow-lg transition-all duration-200"
+                          asChild
                         >
-                          <Button
-                            variant="default"
-                            size="sm"
-                            className="bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl transition-all duration-300"
-                            asChild
+                          <a
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
                           >
-                            <a
-                              href={project.link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              <Globe className="w-4 h-4 mr-2" />
-                              {t("projects.viewDemo")}
-                            </a>
-                          </Button>
-                        </motion.div>
+                            <Globe className="w-4 h-4 mr-2" />
+                            {t("projects.viewDemo")}
+                          </a>
+                        </Button>
                       )}
 
                       {project.video && (
-                        <motion.div
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="border-blue-300 text-blue-600 hover:bg-blue-50 dark:border-blue-600 dark:text-blue-300 dark:hover:bg-blue-900/30 transition-all duration-200"
+                          asChild
                         >
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            className="border-blue-300 text-blue-600 hover:bg-blue-50 dark:border-blue-600 dark:text-blue-300 dark:hover:bg-blue-900/30 transition-all duration-300"
-                            asChild
+                          <a
+                            href={project.video}
+                            target="_blank"
+                            rel="noopener noreferrer"
                           >
-                            <a
-                              href={project.video}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              <Play className="w-4 h-4 mr-2" />
-                              {t("projects.viewVideo")}
-                            </a>
-                          </Button>
-                        </motion.div>
+                            <Play className="w-4 h-4 mr-2" />
+                            {t("projects.viewVideo")}
+                          </a>
+                        </Button>
                       )}
                     </div>
 
@@ -180,27 +165,22 @@ export const ProjectsSection = () => {
                       project.repositories.length > 0 && (
                         <div className="flex flex-wrap gap-2">
                           {project.repositories.map((repo, repoIndex) => (
-                            <motion.div
+                            <Button
                               key={repoIndex}
-                              whileHover={{ scale: 1.05 }}
-                              whileTap={{ scale: 0.95 }}
+                              variant="outline"
+                              size="sm"
+                              className="border-slate-300 text-slate-700 hover:bg-slate-50 dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-800 transition-all duration-200"
+                              asChild
                             >
-                              <Button
-                                variant="outline"
-                                size="sm"
-                                className="border-slate-300 text-slate-700 hover:bg-slate-50 dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-800 transition-all duration-300"
-                                asChild
+                              <a
+                                href={repo.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
                               >
-                                <a
-                                  href={repo.url}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                >
-                                  <Github className="w-4 h-4 mr-2" />
-                                  {repo.name}
-                                </a>
-                              </Button>
-                            </motion.div>
+                                <Github className="w-4 h-4 mr-2" />
+                                {repo.name}
+                              </a>
+                            </Button>
                           ))}
                         </div>
                       )}

@@ -209,6 +209,7 @@
     "successTitle": "¡Éxito!",
     "successMessage": "Tu mensaje ha sido enviado correctamente.",
     "errorTitle": "Error",
+    "defaultMessage": "¡Hola! Estoy interesado en tu trabajo y me gustaría discutir una posible colaboración.",
     "errorMessage": "Hubo un problema al enviar tu mensaje. Por favor inténtalo de nuevo.",
     "form": {
       "name": "Nombre",
