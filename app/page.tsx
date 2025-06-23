@@ -13,11 +13,11 @@ import "@/lib/i18n"
 export default function Home() {
   return (
     <main className="min-h-screen">
-      {/* <Navbar />
-      <HeroSection />
+      <Navbar />
+      {/* <HeroSection /> */}
       <AboutSection />
-      <ProjectsSection /> */}
-      <TechnologiesSection />
+      <ProjectsSection />
+      {/* <TechnologiesSection /> */}
       <ExperienceSection />
       <ContactSection />
       <Footer />
