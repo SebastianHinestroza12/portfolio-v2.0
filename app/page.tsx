@@ -14,10 +14,10 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <Navbar />
-      {/* <HeroSection /> */}
+      <HeroSection />
       <AboutSection />
       <ProjectsSection />
-      {/* <TechnologiesSection /> */}
+      <TechnologiesSection />
       <ExperienceSection />
       <ContactSection />
       <Footer />
