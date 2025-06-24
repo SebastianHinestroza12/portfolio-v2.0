@@ -58,15 +58,15 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={poppins.className}>
-        {/* <ThemeProvider
+        <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
-        </ThemeProvider> */}
-        <Analytics />
-        {children}
+          <Analytics />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
