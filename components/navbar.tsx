@@ -67,7 +67,6 @@ export const Navbar = () => {
                     }}
                     transition={{
                       duration: 2,
-                      repeat: Number.POSITIVE_INFINITY,
                       ease: "easeInOut",
                     }}
                   />

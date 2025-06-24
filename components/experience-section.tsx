@@ -47,10 +47,8 @@ export const ExperienceSection = () => {
                 viewport={{ once: true }}
                 className="relative"
               >
-                {/* Línea de tiempo y punto */}
                 <div className="absolute left-6 top-6 w-4 h-4 bg-blue-600 rounded-full border-4 border-background shadow-md hidden md:block"></div>
 
-                {/* Card de Experiencia */}
                 <Card className="ml-0 md:ml-20 shadow-md hover:shadow-lg transition-shadow">
                   <CardHeader>
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
