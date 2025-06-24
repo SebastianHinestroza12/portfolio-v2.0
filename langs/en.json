@@ -159,43 +159,43 @@
       {
         "title": "Backend",
         "technologies": [
-          { "name": "Node.js", "icon": "logos:nodejs-icon-alt" },
-          { "name": "Express", "icon": "skill-icons:expressjs-dark" },
-          { "name": "NestJS", "icon": "logos:nestjs" },
-          { "name": "Laravel", "icon": "logos:laravel" },
-          { "name": "PHP", "icon": "logos:php" },
-          { "name": "Python", "icon": "logos:python" },
-          { "name": "Django", "icon": "logos:django-icon" },
-          { "name": "Flask", "icon": "logos:flask" },
-          { "name": "MongoDB", "icon": "vscode-icons:file-type-mongo" },
-          { "name": "MySQL", "icon": "devicon:mysql" },
-          { "name": "PostgreSQL", "icon": "logos:postgresql" }
+          { "name": "Node.js", "icon": "FaNode" },
+          { "name": "Express", "icon": "SiExpress" },
+          { "name": "NestJS", "icon": "SiNestjs" },
+          { "name": "Laravel", "icon": "SiLaravel" },
+          { "name": "PHP", "icon": "SiPhp" },
+          { "name": "Python", "icon": "SiPython" },
+          { "name": "Django", "icon": "SiDjango" },
+          { "name": "Flask", "icon": "SiFlask" },
+          { "name": "MongoDB", "icon": "SiMongodb" },
+          { "name": "MySQL", "icon": "SiMysql" },
+          { "name": "PostgreSQL", "icon": "SiPostgresql" }
         ]
       },
       {
         "title": "Frontend",
         "technologies": [
-          { "name": "TypeScript", "icon": "devicon:typescript" },
-          { "name": "JavaScript", "icon": "logos:javascript" },
-          { "name": "React", "icon": "logos:react" },
-          { "name": "Next.js", "icon": "logos:nextjs-icon" },
-          { "name": "React Native", "icon": "skill-icons:react-dark" },
-          { "name": "jQuery", "icon": "devicon:jquery" },
-          { "name": "HTML", "icon": "vscode-icons:file-type-html" },
-          { "name": "CSS", "icon": "vscode-icons:file-type-css" },
-          { "name": "Tailwind CSS", "icon": "logos:tailwindcss-icon" }
+          { "name": "TypeScript", "icon": "SiTypescript" },
+          { "name": "JavaScript", "icon": "SiJavascript" },
+          { "name": "React", "icon": "SiReact" },
+          { "name": "Next.js", "icon": "SiNextdotjs" },
+          { "name": "React Native", "icon": "SiReact" },
+          { "name": "jQuery", "icon": "SiJquery" },
+          { "name": "HTML", "icon": "SiHtml5" },
+          { "name": "CSS", "icon": "SiCss3" },
+          { "name": "Tailwind CSS", "icon": "SiTailwindcss" }
         ]
       },
       {
         "title": "Tools",
         "technologies": [
-          { "name": "Docker", "icon": "skill-icons:docker" },
-          { "name": "Jest", "icon": "vscode-icons:file-type-jest" },
-          { "name": "Git", "icon": "devicon:git" },
-          { "name": "GitHub", "icon": "skill-icons:github-light" },
-          { "name": "Postman", "icon": "devicon:postman" },
-          { "name": "Jira", "icon": "logos:jira" },
-          { "name": "Figma", "icon": "devicon:figma" }
+          { "name": "Docker", "icon": "SiDocker" },
+          { "name": "Jest", "icon": "SiJest" },
+          { "name": "Git", "icon": "SiGit" },
+          { "name": "GitHub", "icon": "SiGithub" },
+          { "name": "Postman", "icon": "SiPostman" },
+          { "name": "Jira", "icon": "SiJira" },
+          { "name": "Figma", "icon": "SiFigma" }
         ]
       }
     ]

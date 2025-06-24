@@ -4,7 +4,63 @@ import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import Marquee from "react-fast-marquee";
 import { Card, CardContent } from "@/components/ui/card";
-import { Icon } from "@iconify/react";
+import { FaNode } from "react-icons/fa";
+import {
+  SiExpress,
+  SiNestjs,
+  SiLaravel,
+  SiPhp,
+  SiPython,
+  SiDjango,
+  SiFlask,
+  SiMongodb,
+  SiMysql,
+  SiPostgresql,
+  SiTypescript,
+  SiJavascript,
+  SiReact,
+  SiNextdotjs,
+  SiJquery,
+  SiHtml5,
+  SiCss3,
+  SiTailwindcss,
+  SiDocker,
+  SiJest,
+  SiGit,
+  SiGithub,
+  SiPostman,
+  SiJira,
+  SiFigma,
+} from "react-icons/si";
+
+const iconMap = {
+  FaNode,
+  SiExpress,
+  SiNestjs,
+  SiLaravel,
+  SiPhp,
+  SiPython,
+  SiDjango,
+  SiFlask,
+  SiMongodb,
+  SiMysql,
+  SiPostgresql,
+  SiTypescript,
+  SiJavascript,
+  SiReact,
+  SiNextdotjs,
+  SiJquery,
+  SiHtml5,
+  SiCss3,
+  SiTailwindcss,
+  SiDocker,
+  SiJest,
+  SiGit,
+  SiGithub,
+  SiPostman,
+  SiJira,
+  SiFigma,
+};
 
 export const TechnologiesSection = () => {
   const { t } = useTranslation();
@@ -63,37 +119,33 @@ export const TechnologiesSection = () => {
               </div>
 
               <Marquee gradient={false} speed={40} pauseOnHover>
-                {category.technologies.map((tech, techIndex) => (
-                  <motion.div
-                    key={`${tech.name}-${techIndex}`}
-                    className="flex-shrink-0 px-2 md:px-3"
-                    whileHover={{
-                      scale: 1.1,
-                      y: -5,
-                      transition: { duration: 0.2 },
-                    }}
-                  >
-                    <Card className="w-24 h-24 md:w-36 md:h-36 border-0 shadow-md hover:shadow-lg transition-all duration-300 bg-background/80 backdrop-blur-sm cursor-pointer">
-                      <CardContent className="p-3 md:p-6 flex flex-col items-center justify-center h-full">
-                        <motion.div
-                          whileHover={{
-                            rotate: 360,
-                            transition: { duration: 0.6 },
-                          }}
-                          className="mb-2 md:mb-4"
-                        >
-                          <Icon
-                            icon={tech.icon}
-                            className="w-8 h-8 md:w-12 md:h-12 text-blue-600 dark:text-blue-400"
-                          />
-                        </motion.div>
-                        <span className="text-xs md:text-sm font-semibold text-center text-foreground group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                          {tech.name}
-                        </span>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                ))}
+                {category.technologies.map((tech, techIndex) => {
+                  const IconComponent =
+                    iconMap[tech.icon as keyof typeof iconMap] || null;
+
+                  return (
+                    <motion.div
+                      key={`${tech.name}-${techIndex}`}
+                      className="flex-shrink-0 px-2 md:px-3"
+                      whileHover={{
+                        scale: 1.1,
+                        y: -5,
+                        transition: { duration: 0.2 },
+                      }}
+                    >
+                      <Card className="w-24 h-24 md:w-36 md:h-36 border-0 shadow-md hover:shadow-lg transition-all duration-300 bg-background/80 backdrop-blur-sm cursor-pointer">
+                        <CardContent className="p-3 md:p-6 flex flex-col items-center justify-center h-full">
+                          {IconComponent && (
+                            <IconComponent className="w-8 h-8 md:w-12 md:h-12 text-blue-600 dark:text-blue-400" />
+                          )}
+                          <span className="text-xs md:text-sm font-semibold text-center text-foreground group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                            {tech.name}
+                          </span>
+                        </CardContent>
+                      </Card>
+                    </motion.div>
+                  );
+                })}
               </Marquee>
             </div>
           ))}
