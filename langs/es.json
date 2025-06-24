@@ -60,23 +60,64 @@
       {
         "title": "Full Stack Developer",
         "company": "Pedbox S.A.S",
-        "period": "Mayo 2024 - Presente",
+        "period": "Enero 2025 - Junio 2025",
         "mode": "Presencial",
-        "description": "Desarrollo y mantenimiento de aplicaciones web full-stack, implementando nuevas funcionalidades y optimizando el rendimiento del sistema."
+        "description": "Como desarrollador principal en Pedbox S.A.S., lideré la creación de un sistema integral de gestión empresarial desde cero. Diseñé la arquitectura e implementé todos los módulos, incluyendo: agenda de citas, multi-sucursal, roles personalizados, portal cliente y dashboard avanzado. Desarrollé un sistema responsive con integraciones complejas (SMTP personalizado) y reportes estadísticos. Este proyecto, uno de mis mayores logros profesionales, demostró mi capacidad para manejar sistemas complejos a escala de producción.",
+        "technologies": [
+          "NestJS",
+          "MySQL",
+          "TypeORM",
+          "Docker",
+          "Redis",
+          "JWT",
+          "RabbitMQ",
+          "React",
+          "ShadCN",
+          "Tailwind CSS",
+          "TypeScript"
+        ]
       },
       {
-        "title": "Full Stack Developer",
+        "title": "Full Stack Developer (Líder de APIs)",
+        "company": "Novadeha Group",
+        "period": "Mayo 2024 - Diciembre 2024",
+        "mode": "Híbrido",
+        "description": "Lideré el diseño e implementación de la arquitectura de APIs para los sistemas empresariales, implementando JSON:API estándar con filtros avanzados, paginación y optimización de consultas. Como desarrollador principal de la aplicación móvil en React Native, establecí las bases técnicas y arquitectónicas del proyecto. Implementé soluciones innovadoras para problemas complejos de sincronización de datos offline/online y mejoré significativamente el rendimiento de las APIs existentes. Colaboré estrechamente con el equipo de producto para definir requerimientos técnicos y establecer mejores prácticas de desarrollo.",
+        "technologies": [
+          "Laravel",
+          "PHP",
+          "NestJS",
+          "JSON:API",
+          "React Native",
+          "PostgreSQL",
+          "MySQL",
+          "TypeScript",
+          "Docker",
+          "AWS",
+          "Jest"
+        ]
+      },
+      {
+        "title": "Full Stack Developer (Prácticas Profesionales)",
         "company": "SPE SAS",
         "period": "Noviembre 2023 - Mayo 2024",
         "mode": "Presencial",
-        "description": "Mejoré y optimicé un módulo de cobranzas, gestionando todas las ventas de asesores y diversos puntos, aumentando su rendimiento y usabilidad en un 75%. Diseñé y creé un módulo integral para el control eficiente de todos los activos de la empresa. Desarrollé servicios API REST que mejoraron la comunicación entre varias partes del sistema."
+        "description": "Diseñé y desarrollé un módulo integral de cobranzas que gestionaba todas las ventas de asesores y puntos de venta, mejorando su rendimiento en un 75%. Implementé un sistema completo para el control de activos empresariales con seguimiento en tiempo real. Desarrollé servicios API REST robustos que mejoraron la comunicación entre los diferentes componentes del sistema. Optimicé procesos críticos mediante la implementación de colas de mensajería y caché distribuido, reduciendo los tiempos de respuesta en un 60%.",
+        "technologies": ["Laravel", "PHP", "JavaScript"]
       },
       {
         "title": "Frontend Developer",
         "company": "ITBLOBERS",
-        "period": "Enero 2023 - Agosto 2023",
+        "period": "Enero 2023 - Julio 2023",
         "mode": "Remoto",
-        "description": "Optimicé la geolocalización del proyecto La Rebaja, logrando un aumento del 80% en velocidad y legibilidad. Realicé pruebas exhaustivas de interfaces para identificar y resolver problemas de usabilidad. Desarrollé aplicaciones móviles y web con Vtex IO."
+        "description": "Lideré la optimización del sistema de geolocalización para el proyecto La Rebaja, logrando un aumento del 80% en velocidad y precisión. Implementé pruebas automatizadas de interfaces que redujeron los bugs reportados en producción en un 40%. Desarrollé componentes reutilizables en VTEX IO que aceleraron el desarrollo de nuevas tiendas en un 30%. Colaboré en el diseño de arquitecturas frontend escalables para aplicaciones de comercio electrónico.",
+        "technologies": [
+          "React",
+          "React Native",
+          "VTEX IO",
+          "TypeScript",
+          "GraphQL"
+        ]
       }
     ]
   },

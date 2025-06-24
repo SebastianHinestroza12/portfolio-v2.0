@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { MapPin, Calendar } from "lucide-react";
+import { MapPin, Calendar, Code } from "lucide-react";
 
 export const ExperienceSection = () => {
   const { t } = useTranslation();
@@ -17,6 +17,7 @@ export const ExperienceSection = () => {
     period: string;
     mode: string;
     description: string;
+    technologies: string[];
   }>;
 
   return (
@@ -55,14 +56,6 @@ export const ExperienceSection = () => {
                       <CardTitle className="text-xl font-bold text-blue-600">
                         {position.title}
                       </CardTitle>
-                      {index === 0 && (
-                        <Badge
-                          variant="secondary"
-                          className="bg-green-100 text-green-800 w-fit"
-                        >
-                          {t("experience.current")}
-                        </Badge>
-                      )}
                     </div>
                     <div className="space-y-2">
                       <h3 className="text-lg font-semibold text-foreground">
@@ -80,10 +73,24 @@ export const ExperienceSection = () => {
                       </div>
                     </div>
                   </CardHeader>
-                  <CardContent>
+                  <CardContent className="space-y-4">
                     <p className="text-muted-foreground leading-relaxed">
                       {position.description}
                     </p>
+                    {position.technologies &&
+                      position.technologies.length > 0 && (
+                        <div className="flex flex-wrap gap-2 mt-4">
+                          <div className="flex items-center gap-1 text-sm font-medium">
+                            <Code className="h-4 w-4" />
+                            <span>{t("technologies.title")}:</span>
+                          </div>
+                          {position.technologies.map((tech, techIndex) => (
+                            <Badge key={techIndex} variant="outline">
+                              {tech}
+                            </Badge>
+                          ))}
+                        </div>
+                      )}
                   </CardContent>
                 </Card>
               </motion.div>

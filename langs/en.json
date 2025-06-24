@@ -60,23 +60,64 @@
       {
         "title": "Full Stack Developer",
         "company": "Pedbox S.A.S",
-        "period": "May 2024 - Present",
+        "period": "January 2025 - June 2025",
         "mode": "On-site",
-        "description": "Development and maintenance of full-stack web applications, implementing new features and optimizing system performance."
+        "description": "As lead developer at Pedbox S.A.S, I spearheaded the creation of a comprehensive business management system from scratch. Designed the architecture and implemented all modules including: appointment scheduling, multi-branch management, custom roles, client portal and advanced dashboard. Built a responsive system with complex integrations (custom SMTP) and statistical reporting. This project, one of my greatest professional achievements, demonstrated my ability to handle complex systems at production scale.",
+        "technologies": [
+          "NestJS",
+          "MySQL",
+          "TypeORM",
+          "Docker",
+          "Redis",
+          "JWT",
+          "RabbitMQ",
+          "React",
+          "ShadCN",
+          "Tailwind CSS",
+          "TypeScript"
+        ]
       },
       {
-        "title": "Full Stack Developer",
+        "title": "Full Stack Developer (API Lead)",
+        "company": "Novadeha Group",
+        "period": "May 2024 - December 2024",
+        "mode": "Hybrid",
+        "description": "Led the design and implementation of API architecture for enterprise systems, implementing JSON:API standard with advanced filters, pagination, and query optimization. As the lead developer of the React Native mobile application, I established the technical and architectural foundations of the project. Implemented innovative solutions for complex offline/online data synchronization challenges and significantly improved performance of existing APIs. Collaborated closely with the product team to define technical requirements and establish development best practices.",
+        "technologies": [
+          "Laravel",
+          "PHP",
+          "NestJS",
+          "JSON:API",
+          "React Native",
+          "PostgreSQL",
+          "MySQL",
+          "TypeScript",
+          "Docker",
+          "AWS",
+          "Jest"
+        ]
+      },
+      {
+        "title": "Full Stack Developer (Professional Internship)",
         "company": "SPE SAS",
         "period": "November 2023 - May 2024",
         "mode": "On-site",
-        "description": "Improved and optimized a collections module, managing all advisor sales and various points, increasing performance and usability by 75%. Designed and created a comprehensive module for efficient control of all company assets. Developed REST API services that improved system communication."
+        "description": "Designed and developed a comprehensive collections module that managed all sales from advisors and points of sale, improving performance by 75%. Implemented a complete system for tracking company assets with real-time monitoring. Developed robust REST API services that enhanced communication between different system components. Optimized critical processes by implementing message queues and distributed cache, reducing response times by 60%.",
+        "technologies": ["Laravel", "PHP", "JavaScript"]
       },
       {
         "title": "Frontend Developer",
         "company": "ITBLOBERS",
-        "period": "January 2023 - August 2023",
+        "period": "January 2023 - July 2023",
         "mode": "Remote",
-        "description": "Optimized geolocation for La Rebaja project, achieving an 80% increase in speed and readability. Performed extensive interface testing to identify and resolve usability issues. Developed mobile and web applications with Vtex IO."
+        "description": "Led the optimization of the geolocation system for the La Rebaja project, achieving an 80% improvement in speed and accuracy. Implemented automated interface testing that reduced reported production bugs by 40%. Developed reusable VTEX IO components that accelerated new store development by 30%. Contributed to the design of scalable frontend architectures for e-commerce applications.",
+        "technologies": [
+          "React",
+          "React Native",
+          "VTEX IO",
+          "TypeScript",
+          "GraphQL"
+        ]
       }
     ]
   },

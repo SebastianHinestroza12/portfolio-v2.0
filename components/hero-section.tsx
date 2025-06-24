@@ -9,6 +9,7 @@ import Image from "next/image";
 
 export const HeroSection = () => {
   const { t } = useTranslation();
+  const pdfUrl = "/pdf/CV_Sebastian.pdf";
 
   const scrollToProjects = () => {
     document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" });
@@ -17,7 +18,7 @@ export const HeroSection = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 pb-16"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
     >
       <div className="container mx-auto px-4 text-center">
         <motion.div
@@ -106,13 +107,15 @@ export const HeroSection = () => {
               <ArrowDown className="ml-2 h-4 w-4" />
             </Button>
 
-            <Button
-              variant="outline"
-              className="px-6 py-3 border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all w-full sm:w-auto"
-            >
-              <Download className="mr-2 h-4 w-4" />
-              {t("hero.downloadCV")}
-            </Button>
+            <a download href={pdfUrl} className="w-full sm:w-auto">
+              <Button
+                variant="outline"
+                className="px-6 py-3 border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all w-full sm:w-auto"
+              >
+                <Download className="mr-2 h-4 w-4" />
+                {t("hero.downloadCV")}
+              </Button>
+            </a>
           </motion.div>
 
           <motion.div
