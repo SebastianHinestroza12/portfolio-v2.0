@@ -1,5 +1,6 @@
 "use client";
 
+import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -7,7 +8,7 @@ import { ArrowDown, Download, Github, Linkedin, Mail } from "lucide-react";
 import { socialLinks } from "@/constants/socialLinks";
 import Image from "next/image";
 
-export const HeroSection = () => {
+export const HeroSection = memo(() => {
   const { t } = useTranslation();
   const pdfUrl = "/pdf/CV_Sebastian.pdf";
 
@@ -18,7 +19,7 @@ export const HeroSection = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-12"
     >
       <div className="container mx-auto px-4 text-center">
         <motion.div
@@ -150,4 +151,4 @@ export const HeroSection = () => {
       </div>
     </section>
   );
-};
+});

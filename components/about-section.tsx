@@ -1,5 +1,6 @@
 "use client";
 
+import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
@@ -20,7 +21,7 @@ import {
   Network,
 } from "lucide-react";
 
-export const AboutSection = () => {
+export const AboutSection = memo(() => {
   const { t } = useTranslation();
 
   const highlights = t("about.highlights", { returnObjects: true }) as string[];
@@ -164,4 +165,4 @@ export const AboutSection = () => {
       </div>
     </section>
   );
-};
+});

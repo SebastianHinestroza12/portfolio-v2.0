@@ -1,12 +1,13 @@
 "use client";
 
+import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Calendar, Code } from "lucide-react";
 
-export const ExperienceSection = () => {
+export const ExperienceSection = memo(() => {
   const { t } = useTranslation();
 
   const positions = t("experience.positions", {
@@ -100,4 +101,4 @@ export const ExperienceSection = () => {
       </div>
     </section>
   );
-};
+});

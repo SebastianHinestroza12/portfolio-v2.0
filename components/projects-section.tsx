@@ -1,6 +1,7 @@
 "use client";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -10,7 +11,7 @@ import { Github, Globe, Play } from "lucide-react";
 import Image from "next/image";
 import { Carousel } from "react-responsive-carousel";
 
-export const ProjectsSection = () => {
+export const ProjectsSection = memo(() => {
   const { t } = useTranslation();
 
   const projects = t("projects.items", { returnObjects: true }) as Array<{
@@ -193,4 +194,4 @@ export const ProjectsSection = () => {
       </div>
     </section>
   );
-};
+});

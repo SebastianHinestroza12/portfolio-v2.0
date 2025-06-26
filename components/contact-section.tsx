@@ -1,5 +1,6 @@
 "use client";
 
+import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -20,7 +21,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { toast, ToastContainer } from "react-toastify";
 
-export const ContactSection = () => {
+export const ContactSection = memo(() => {
   const { t } = useTranslation();
 
   const formSchema = z.object({
@@ -371,4 +372,4 @@ export const ContactSection = () => {
       </div>
     </section>
   );
-};
+});

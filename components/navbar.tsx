@@ -1,13 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { memo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { Menu, X, Code2 } from "lucide-react";
 
-export const Navbar = () => {
+export const Navbar = memo(() => {
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
@@ -255,4 +255,4 @@ export const Navbar = () => {
       </AnimatePresence>
     </>
   );
-};
+});

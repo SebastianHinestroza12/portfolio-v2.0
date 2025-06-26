@@ -1,11 +1,17 @@
 "use client"
 
-import { useTranslation } from "react-i18next"
-import { Button } from "@/components/ui/button"
-import { Globe } from "lucide-react"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { memo } from "react";
+import { useTranslation } from "react-i18next";
+import { Button } from "@/components/ui/button";
+import { Globe } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
-export const LanguageSwitcher = () => {
+export const LanguageSwitcher = memo(() => {
   const { i18n } = useTranslation();
 
   const changeLanguage = (lng: string) => {
@@ -29,4 +35,4 @@ export const LanguageSwitcher = () => {
       </DropdownMenuContent>
     </DropdownMenu>
   );
-};
+});

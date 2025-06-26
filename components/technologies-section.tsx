@@ -1,5 +1,6 @@
 "use client";
 
+import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import Marquee from "react-fast-marquee";
@@ -62,7 +63,7 @@ const iconMap = {
   SiFigma,
 };
 
-export const TechnologiesSection = () => {
+export const TechnologiesSection = memo(() => {
   const { t } = useTranslation();
 
   const categories = t("technologies.categories", {
@@ -153,4 +154,4 @@ export const TechnologiesSection = () => {
       </div>
     </section>
   );
-};
+});

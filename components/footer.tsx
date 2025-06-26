@@ -5,8 +5,9 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { FaGithub, FaLinkedinIn, FaEnvelope, FaHeart } from "react-icons/fa";
 import { socialLinks as social } from "@/constants/socialLinks";
+import { memo } from "react";
 
-export const Footer = () => {
+export const Footer = memo(() => {
   const { t } = useTranslation();
 
   const socialLinks = [
@@ -147,4 +148,4 @@ export const Footer = () => {
       </div>
     </footer>
   );
-};
+});
