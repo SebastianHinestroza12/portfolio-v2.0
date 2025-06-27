@@ -10,7 +10,7 @@ import Image from "next/image";
 
 export const HeroSection = memo(() => {
   const { t } = useTranslation();
-  const pdfUrl = "/pdf/CV_Sebastian.pdf";
+  const pdfUrl = "/pdf/CV_INGENIERO_SOFTWARE_SEBASTIAN_MENA.pdf";
 
   const scrollToProjects = () => {
     document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" });
@@ -52,7 +52,7 @@ export const HeroSection = memo(() => {
                 <div className="w-full h-full rounded-full bg-background p-2">
                   <div className="w-full h-full rounded-full overflow-hidden shadow-xl">
                     <Image
-                      src="https://res.cloudinary.com/dafsjo7al/image/upload/v1750615569/1747657753243_uu9fz7.webp?height=200&width=200"
+                      src="https://res.cloudinary.com/dafsjo7al/image/upload/v1751002764/IMG_0178_1_1_flazbh.jpg?height=200&width=200"
                       alt="Sebastian Mena"
                       width={200}
                       height={200}
